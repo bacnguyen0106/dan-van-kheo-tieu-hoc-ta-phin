@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dân Vận Khéo – Nhiều Cánh Tay Nối Dài Vì Học Sinh Vùng Cao | Tiểu Học Tả Phìn Sa Pa</title>
+  <meta name="description" content="Chuyên san báo điện tử Trường Tiểu học Tả Phìn, TX Sa Pa: Dân vận khéo - Nhiều cánh tay nối dài vì học sinh vùng cao. Sự đồng hành của y tế, công an, chính quyền và phụ huynh.">
+  
+  <!-- Favicon & Font Awesome -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤝</text></svg>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Google Fonts: Nunito, Be Vietnam Pro, Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS & Confetti -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Nunito', 'Be Vietnam Pro', 'sans-serif'],
+            heading: ['Be Vietnam Pro', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              red: '#dc2626',
+              orange: '#ea580c',
+              amber: '#d97706',
+              emerald: '#059669',
+              blue: '#0284c7',
+              indigo: '#4f46e5',
+              dark: '#0f172a'
+            }
+          },
+          animation: {
+            'bounce-slow': 'bounce 3s infinite',
+            'float': 'floating 4s ease-in-out infinite',
+            'pulse-glow': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            floating: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Thanh cuộn tinh tế */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #f8fafc; }
+    ::-webkit-scrollbar-thumb { background: #f97316; border-radius: 999px; border: 2px solid #f8fafc; }
+    ::-webkit-scrollbar-thumb:hover { background: #ea580c; }
+
+    /* Reading Progress Bar */
+    #reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #ef4444, #f97316, #eab308, #10b981, #06b6d4, #6366f1);
+      width: 0%;
+      z-index: 100;
+      transition: width 0.1s ease-out;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .hero-sapa-bg {
+      background: linear-gradient(180deg, #fef2f2 0%, #fff7ed 45%, #ffffff 100%);
+    }
+
+    /* Hiệu ứng nổi bật của ảnh phóng sự */
+    .photo-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .photo-card:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 25px 35px -12px rgba(234, 88, 12, 0.25);
+    }
+
+    /* HIỆU ỨNG TIÊU ĐỀ NHẤP NHÁY / PHÁT SÁNG NGHỆ THUẬT */
+    @keyframes titleBlinkGlow {
+      0%, 100% {
+        color: #1e293b;
+        text-shadow: 0 0 12px rgba(249, 115, 22, 0.4), 0 0 24px rgba(220, 38, 38, 0.2);
+        transform: scale(1);
+      }
+      50% {
+        color: #b91c1c;
+        text-shadow: 0 0 20px rgba(239, 68, 68, 0.8), 0 0 38px rgba(249, 115, 22, 0.7), 0 0 55px rgba(234, 179, 8, 0.5);
+        transform: scale(1.015);
+      }
+    }
+
+    @keyframes badgeBlink {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+      50% { opacity: 0.6; box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .hero-blinking-title {
+      animation: titleBlinkGlow 2.8s ease-in-out infinite;
+      display: inline-block;
+      transition: all 0.3s;
+    }
+
+    .shimmer-text {
+      background: linear-gradient(90deg, #dc2626, #ea580c, #d97706, #059669, #0284c7, #dc2626);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 4.5s ease infinite;
+      text-shadow: 0 0 25px rgba(249, 115, 22, 0.3);
+    }
+
+    .blink-dot {
+      animation: badgeBlink 1.4s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-orange-200 selection:text-orange-950">
+
+  <!-- Thanh đọc bài tiến độ -->
+  <div id="reading-progress"></div>
+
+  <!-- Nút tiện ích: Đọc to giọng nói & Về đầu trang -->
+  <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+    <button id="tts-btn" onclick="toggleTextToSpeech()" title="Bật/Tắt đọc bằng giọng nói cho học sinh" class="w-14 h-14 bg-gradient-to-tr from-rose-500 to-amber-500 text-white rounded-full shadow-2xl flex items-center justify-center text-xl hover:scale-110 active:scale-95 transition-all border-4 border-white group">
+      <i class="fa-solid fa-volume-high group-hover:animate-bounce"></i>
+      <span class="absolute right-16 bg-slate-900 text-white text-xs font-bold py-1.5 px-3 rounded-lg shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+        🔊 Nghe đọc bài báo
+      </span>
+    </button>
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Về đầu trang" class="w-12 h-12 bg-white text-orange-600 rounded-full shadow-lg flex items-center justify-center text-lg hover:bg-orange-50 active:scale-95 transition-all border border-orange-200">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+  </div>
+
+  <!-- HEADER BÁO ĐIỆN TỬ HỌC ĐƯỜNG -->
+  <header class="border-b border-orange-100 bg-white/95 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="text-3xl animate-bounce-slow">🤝</span>
+        <div>
+          <span class="text-xs font-black tracking-widest text-red-600 uppercase flex items-center gap-1.5">
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-red-600 blink-dot"></span>
+            CHUYÊN SAN DÂN VẬN KHÉO TRƯỜNG HỌC SA PA
+          </span>
+          <h1 class="text-lg md:text-xl font-extrabold text-slate-900 flex items-center gap-2">
+            Măng Non Tả Phìn <span class="bg-red-100 text-red-700 text-xs px-2.5 py-0.5 rounded-full border border-red-300 font-black">Phóng Sự Ảnh</span>
+          </h1>
+        </div>
+      </div>
+
+      <div class="hidden sm:flex items-center gap-4 text-xs font-semibold text-slate-500 bg-orange-50 px-3.5 py-1.5 rounded-full border border-orange-200">
+        <span class="flex items-center gap-1"><i class="fa-regular fa-calendar text-orange-600"></i> Năm học 2026</span>
+        <span>•</span>
+        <span class="flex items-center gap-1"><i class="fa-solid fa-mountain-sun text-amber-600"></i> Xã Tả Phìn, TX Sa Pa</span>
+      </div>
+
+      <div>
+        <button onclick="triggerConfetti()" class="bg-gradient-to-r from-red-500 via-orange-500 to-amber-500 hover:from-red-600 hover:to-amber-600 text-white text-xs md:text-sm font-black px-4 py-2 rounded-full shadow-md flex items-center gap-1.5 transform active:scale-95 transition-all">
+          <i class="fa-solid fa-hands-clapping"></i> Cổ Vũ Thầy Trò! 🎉
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO BANNER BÁO ĐIỆN TỬ -->
+  <section class="hero-sapa-bg pt-10 pb-16 px-4 relative overflow-hidden">
+    <div class="absolute top-6 left-8 text-4xl opacity-35 animate-float">🌿</div>
+    <div class="absolute top-12 right-10 text-5xl opacity-30 animate-float" style="animation-delay: 2s;">⛰️</div>
+    <div class="absolute bottom-6 left-1/3 text-2xl opacity-20">✨</div>
+    <div class="absolute top-1/4 right-1/4 text-3xl opacity-25">🎈</div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <!-- Badge Danh mục -->
+      <div class="inline-flex items-center gap-2 bg-white/95 backdrop-blur-sm border-2 border-red-200 px-4 py-1.5 rounded-full shadow-md mb-6">
+        <span class="text-base animate-pulse">🌟</span>
+        <span class="text-xs md:text-sm font-black text-red-700 uppercase tracking-wider">MÔ HÌNH DÂN VẬN KHÉO TIÊU BIỂU</span>
+        <span class="w-2 h-2 rounded-full bg-emerald-500 blink-dot"></span>
+      </div>
+
+      <!-- TIÊU ĐỀ CHÍNH VỚI HIỆU ỨNG NHẤP NHÁY / PHÁT SÁNG NGHỆ THUẬT -->
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight md:leading-snug mb-6 font-heading">
+        <span class="hero-blinking-title">
+          DÂN VẬN KHÉO – NHIỀU CÁNH TAY NỐI DÀI
+        </span>
+        <br class="hidden sm:inline">
+        <span class="shimmer-text font-black inline-block mt-2 sm:mt-1">
+          VÌ HỌC SINH VÙNG CAO 🎓
+        </span>
+        <br>
+        <span class="hero-blinking-title text-slate-800 mt-2 inline-block text-2xl sm:text-3xl md:text-4xl">
+          Tại Trường Tiểu Học Tả Phìn, Thị Xã Sa Pa
+        </span>
+      </h2>
+
+      <!-- Subtitle & Các lực lượng đồng hành -->
+      <div class="flex flex-wrap items-center justify-center gap-2.5 text-xs sm:text-sm text-slate-700 font-bold max-w-3xl mx-auto">
+        <span class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full shadow-sm border border-slate-200">
+          <i class="fa-solid fa-hospital-user text-rose-500"></i> Y Tế Xã
+        </span>
+        <span class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full shadow-sm border border-slate-200">
+          <i class="fa-solid fa-shield-halved text-blue-600"></i> Công An Xã
+        </span>
+        <span class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full shadow-sm border border-slate-200">
+          <i class="fa-solid fa-traffic-light text-amber-500"></i> Giao Thông
+        </span>
+        <span class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full shadow-sm border border-slate-200">
+          <i class="fa-solid fa-building-columns text-emerald-600"></i> Chính Quyền Địa Phương
+        </span>
+        <span class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full shadow-sm border border-slate-200">
+          <i class="fa-solid fa-heart text-red-500"></i> Cha Mẹ Học Sinh
+        </span>
+      </div>
+
+      <!-- Lead Paragraph -->
+      <div class="mt-8 bg-white/95 backdrop-blur-md rounded-2xl p-6 sm:p-8 shadow-xl border-2 border-orange-200 text-left relative">
+        <div class="absolute -top-4 left-6 bg-gradient-to-r from-red-600 to-orange-500 text-white text-xs font-black uppercase px-3.5 py-1 rounded-full shadow">
+          📌 Thông Điệp Nhân Văn
+        </div>
+        <p class="text-slate-700 text-base sm:text-lg leading-relaxed font-semibold italic text-justify">
+          &ldquo;Tại Trường Tiểu học Tả Phìn, xã Tả Phìn, tỉnh Lào Cai, chăm lo cho học sinh không chỉ là câu chuyện của những người đứng trên bục giảng. Từ cán bộ y tế, lực lượng công an, cán bộ tuyên truyền an toàn giao thông đến chính quyền địa phương và cha mẹ học sinh, mỗi lực lượng một phần việc, cùng tạo nên một môi trường học tập an toàn, lành mạnh và tràn đầy yêu thương!&rdquo;
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NỘI DUNG PHÓNG SỰ CHÍNH -->
+  <main class="max-w-4xl mx-auto px-4 py-8 space-y-12">
+
+    <!-- PHẦN 1: KHI NHÀ TRƯỜNG KHÔNG ĐI MỘT MÌNH -->
+    <article class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-100">
+      <div class="flex items-center gap-3 mb-6 border-b border-slate-100 pb-4">
+        <span class="w-11 h-11 rounded-2xl bg-red-100 text-red-600 flex items-center justify-center font-black text-lg">01</span>
+        <div>
+          <span class="text-xs font-bold text-red-600 uppercase tracking-widest">Sợi Dây Liên Kết</span>
+          <h3 class="text-xl sm:text-2xl font-black text-slate-900">Khi Nhà Trường Không Đi Một Mình</h3>
+        </div>
+      </div>
+
+      <div class="text-slate-700 text-base sm:text-lg leading-relaxed space-y-4 text-justify">
+        <p>
+          Mỗi ngày đến trường của một học sinh vùng cao là hành trình bắt đầu từ gia đình, đi qua cộng đồng và kết thúc ở lớp học. Vì thế, để các em học tập, rèn luyện và trưởng thành, những gì diễn ra trong lớp học thôi chưa đủ.
+        </p>
+        <p>
+          Ở Trường Tiểu học Tả Phìn, sự phối hợp giữa nhà trường với các lực lượng tại địa phương được thể hiện bằng những việc làm cụ thể, gắn trực tiếp với cuộc sống của học sinh. Không phải những điều lớn lao, đó có thể là một buổi khám sức khỏe ngay tại trường; một buổi tuyên truyền an toàn giao thông; những hướng dẫn về phòng cháy chữa cháy; sự quan tâm của chính quyền địa phương hay những ngày cha mẹ cùng đến trường lao động.
+        </p>
+        <div class="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-2xl my-4 text-orange-900 font-bold text-sm sm:text-base">
+          ✨ Mỗi hoạt động giải quyết một nhu cầu thiết thực, tạo thành sợi dây liên kết bền chặt: <strong>Nhà trường – Gia đình – Chính quyền – Lực lượng xã hội – Cộng đồng</strong>.
+        </div>
+      </div>
+    </article>
+
+    <!-- PHẦN 2: CHĂM SÓC SỨC KHỎE HỌC ĐƯỜNG (ẢNH 1) -->
+    <article class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-100 space-y-6">
+      <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+        <span class="w-11 h-11 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-black text-lg">02</span>
+        <div>
+          <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest">Y Tế Học Đường</span>
+          <h3 class="text-xl sm:text-2xl font-black text-slate-900">Chăm Lo Cho Học Sinh Từ Những Điều Thiết Thực</h3>
+        </div>
+      </div>
+
+      <p class="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
+        Một đứa trẻ muốn học tập tốt trước hết cần có sức khỏe tốt. Cán bộ y tế xã đã phối hợp với Trường Tiểu học Tả Phìn thực hiện khám sàng lọc sức khỏe ban đầu cho <strong>100% học sinh (452/452 em)</strong>, giúp phát hiện sớm các vấn đề thể chất và hướng dẫn các em biết tự bảo vệ bản thân.
+      </p>
+
+      <!-- HÌNH ẢNH 1 -->
+      <div class="photo-card bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-emerald-200">
+        <div class="relative group">
+          <img src="images/image1.jpeg" alt="Cán bộ y tế xã khám sức khỏe cho học sinh Tiểu học Tả Phìn" class="w-full h-auto object-cover max-h-[580px] transition-transform duration-500 group-hover:scale-[1.02]">
+          <div class="absolute top-4 left-4 bg-emerald-600/90 backdrop-blur-md text-white px-3.5 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-lg">
+            <i class="fa-solid fa-stethoscope"></i> ẢNH THỰC TẾ 01
+          </div>
+        </div>
+        <div class="p-5 bg-gradient-to-r from-emerald-50 via-white to-teal-50 border-t border-emerald-100">
+          <p class="font-bold text-slate-800 text-sm sm:text-base leading-snug">
+            Hình 1: Cán bộ y tế xã phối hợp với Trường Tiểu học Tả Phìn khám sức khỏe định kỳ cho học sinh. 452/452 em học sinh được khám sàng lọc sức khỏe ban đầu chu đáo.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- PHẦN 3: MÔI TRƯỜNG AN TOÀN & CÔNG AN ĐỒNG HÀNH (ẢNH 2, 3) -->
+    <article class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-100 space-y-6">
+      <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+        <span class="w-11 h-11 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center font-black text-lg">03</span>
+        <div>
+          <span class="text-xs font-bold text-blue-600 uppercase tracking-widest">An Ninh & Kỹ Năng Sống</span>
+          <h3 class="text-xl sm:text-2xl font-black text-slate-900">Cùng Xây Dựng Một Môi Trường Học Tập An Toàn</h3>
+        </div>
+      </div>
+
+      <p class="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
+        Một môi trường giáo dục tốt không chỉ cần tri thức mà còn phải an toàn tuyệt đối. Sự phối hợp chặt chẽ cùng <strong>Công an xã Tả Phìn</strong> giúp phòng ngừa từ sớm mọi nguy cơ và trang bị những kỹ năng thoát hiểm cần thiết.
+      </p>
+
+      <!-- HÌNH ẢNH 2: TEST MA TÚY GIÁO VIÊN -->
+      <div class="photo-card bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-blue-200">
+        <div class="relative group">
+          <img src="images/image2.jpeg" alt="Lực lượng Công an xã thực hiện test ma túy đối với giáo viên" class="w-full h-auto object-cover max-h-[550px] transition-transform duration-500 group-hover:scale-[1.02]">
+          <div class="absolute top-4 left-4 bg-blue-600/90 backdrop-blur-md text-white px-3.5 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-lg">
+            <i class="fa-solid fa-shield-virus"></i> ẢNH THỰC TẾ 02
+          </div>
+        </div>
+        <div class="p-5 bg-gradient-to-r from-blue-50 via-white to-sky-50 border-t border-blue-100">
+          <p class="font-bold text-slate-800 text-sm sm:text-base leading-snug">
+            Hình 2: Lực lượng Công an xã Tả Phìn phối hợp thực hiện công tác kiểm tra, test ma túy đối với 100% cán bộ giáo viên (Kết quả: 100% giáo viên mẫu mực, không ma túy).
+          </p>
+        </div>
+      </div>
+
+      <!-- HÌNH ẢNH 3: PCCC VÀ CỨU NẠN CỨU HỘ -->
+      <div class="photo-card bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-red-200 mt-6">
+        <div class="relative group">
+          <img src="images/image3.jpeg" alt="Công an hướng dẫn kỹ năng PCCC và cứu nạn cứu hộ cho học sinh" class="w-full h-auto object-cover max-h-[550px] transition-transform duration-500 group-hover:scale-[1.02]">
+          <div class="absolute top-4 left-4 bg-red-600/90 backdrop-blur-md text-white px-3.5 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-lg">
+            <i class="fa-solid fa-fire-extinguisher"></i> ẢNH THỰC TẾ 03
+          </div>
+        </div>
+        <div class="p-5 bg-gradient-to-r from-red-50 via-white to-orange-50 border-t border-red-100">
+          <p class="font-bold text-slate-800 text-sm sm:text-base leading-snug">
+            Hình 3: Cán bộ Công an trực tiếp hướng dẫn thầy cô và học sinh các thao tác phòng cháy, kỹ năng thoát hiểm và cứu hộ khi có sự cố.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- PHẦN 4: AN TOÀN GIAO THÔNG (ẢNH 4) -->
+    <article class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-100 space-y-6">
+      <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+        <span class="w-11 h-11 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center font-black text-lg">04</span>
+        <div>
+          <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">Cổng Trường Bình Yên</span>
+          <h3 class="text-xl sm:text-2xl font-black text-slate-900">Từ Cổng Trường Đến Những Cung Đường Bình Yên</h3>
+        </div>
+      </div>
+
+      <p class="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
+        Với học sinh vùng cao, hành trình đến trường bắt đầu từ ngoài cánh cổng. Cán bộ chuyên môn đã đưa những quy định tưởng chừng khô khan trở thành những bài học thực hành sinh động: cách đội mũ bảo hiểm đúng quy chuẩn, đi đúng phần đường và quan sát an toàn khi qua đường.
+      </p>
+
+      <!-- HÌNH ẢNH 4 -->
+      <div class="photo-card bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-amber-200">
+        <div class="relative group">
+          <img src="images/image4.jpeg" alt="Tuyên truyền an toàn giao thông cho học sinh trường TH Tả Phìn" class="w-full h-auto object-cover max-h-[580px] transition-transform duration-500 group-hover:scale-[1.02]">
+          <div class="absolute top-4 left-4 bg-amber-600/90 backdrop-blur-md text-white px-3.5 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-lg">
+            <i class="fa-solid fa-helmet-safety"></i> ẢNH THỰC TẾ 04
+          </div>
+        </div>
+        <div class="p-5 bg-gradient-to-r from-amber-50 via-white to-yellow-50 border-t border-amber-100">
+          <p class="font-bold text-slate-800 text-sm sm:text-base leading-snug">
+            Hình 4: Buổi tuyên truyền kỹ năng tham gia giao thông an toàn, rèn luyện thói quen tự bảo vệ bản thân cho các em học sinh.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- PHẦN 5: CHÍNH QUYỀN ĐỒNG HÀNH (ẢNH 5) -->
+    <article class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-100 space-y-6">
+      <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+        <span class="w-11 h-11 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center font-black text-lg">05</span>
+        <div>
+          <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Sự Quan Tâm Sâu Sát</span>
+          <h3 class="text-xl sm:text-2xl font-black text-slate-900">Khi Lãnh Đạo Địa Phương Và Nhà Trường Cùng Chung Trách Nhiệm</h3>
+        </div>
+      </div>
+
+      <p class="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
+        Đoàn công tác của chính quyền xã do đồng chí <strong>Thào A Sinh - Bí thư Đảng ủy xã Tả Phìn</strong> và đồng chí <strong>Vũ Xuân Quý - Chủ tịch UBND xã</strong> cùng các chuyên viên văn hóa xã hội đã trực tiếp đến thăm, kiểm tra và động viên thầy trò nhà trường, kịp thời tháo gỡ khó khăn trong công tác dạy và học.
+      </p>
+
+      <!-- HÌNH ẢNH 5 -->
+      <div class="photo-card bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-indigo-200">
+        <div class="relative group">
+          <img src="images/image5.jpeg" alt="Lãnh đạo Đảng ủy, UBND xã Tả Phìn thăm và làm việc tại trường" class="w-full h-auto object-cover max-h-[580px] transition-transform duration-500 group-hover:scale-[1.02]">
+          <div class="absolute top-4 left-4 bg-indigo-600/90 backdrop-blur-md text-white px-3.5 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-lg">
+            <i class="fa-solid fa-landmark"></i> ẢNH THỰC TẾ 05
+          </div>
+        </div>
+        <div class="p-5 bg-gradient-to-r from-indigo-50 via-white to-purple-50 border-t border-indigo-100">
+          <p class="font-bold text-slate-800 text-sm sm:text-base leading-snug">
+            Hình 5: Các đồng chí lãnh đạo Đảng ủy, UBND xã Tả Phìn kiểm tra thực tế cơ sở vật chất và động viên thầy trò nhà trường thi đua dạy tốt - học tốt.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- PHẦN 6: GIA ĐÌNH VÀ PHỤ HUYNH CHUNG SỨC (ẢNH 6, 7, 8) -->
+    <article class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-100 space-y-6">
+      <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+        <span class="w-11 h-11 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center font-black text-lg">06</span>
+        <div>
+          <span class="text-xs font-bold text-rose-600 uppercase tracking-widest">Tình Thân Gia Đình</span>
+          <h3 class="text-xl sm:text-2xl font-black text-slate-900">Những Bàn Tay Ấm Áp Từ Cha Mẹ Học Sinh</h3>
+        </div>
+      </div>
+
+      <p class="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
+        Nếu các lực lượng bên ngoài là những cánh tay nối dài, thì cha mẹ học sinh chính là những người đồng hành bền bỉ nhất. Từ những buổi họp trao đổi thẳng thắn đến những ngày công lao động san gạt mặt bằng, trồng hoa, sửa sang sân trường... tất cả đều vì những đứa con thân yêu.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- HÌNH ẢNH 6 -->
+        <div class="photo-card bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-200">
+          <img src="images/image6.jpg" alt="Buổi họp phụ huynh tại trường TH Tả Phìn" class="w-full h-64 object-cover">
+          <div class="p-4 bg-slate-50 border-t border-slate-100 text-xs sm:text-sm font-bold text-slate-700">
+            Hình 6: Cha mẹ học sinh tham gia buổi họp, bàn thảo kế hoạch phối hợp giáo dục cùng nhà trường.
+          </div>
+        </div>
+
+        <!-- HÌNH ẢNH 7 -->
+        <div class="photo-card bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-200">
+          <img src="images/image7.jpg" alt="Phụ huynh tham gia lao động xây dựng cảnh quan trường" class="w-full h-64 object-cover">
+          <div class="p-4 bg-slate-50 border-t border-slate-100 text-xs sm:text-sm font-bold text-slate-700">
+            Hình 7: Phụ huynh nhiệt tình đóng góp ngày công lao động cải tạo môi trường học tập xanh - sạch - đẹp.
+          </div>
+        </div>
+      </div>
+
+      <!-- HÌNH ẢNH 8 -->
+      <div class="photo-card bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-rose-200 mt-6">
+        <img src="images/image8.jpg" alt="Phụ huynh và nhà trường chung tay vì học sinh" class="w-full h-auto object-cover max-h-[500px]">
+        <div class="p-5 bg-gradient-to-r from-rose-50 to-pink-50 border-t border-rose-100">
+          <p class="font-bold text-slate-800 text-sm sm:text-base leading-snug">
+            Hình 8: Tinh thần đoàn kết, trách nhiệm của cộng đồng phụ huynh Tả Phìn dành cho các em nhỏ vùng cao.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- BOX TỔNG KẾT: NHIỀU CÁNH TAY - MỘT MỤC TIÊU -->
+    <section class="bg-gradient-to-tr from-slate-900 via-orange-950 to-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-8">
+        <span class="bg-orange-500/30 text-amber-300 font-bold text-xs uppercase px-3 py-1 rounded-full border border-orange-400/40">
+          Gắn Kết Vững Bền
+        </span>
+        <h3 class="text-2xl sm:text-3xl font-black">NHIỀU CÁNH TAY – MỘT MỤC TIÊU VÌ HỌC SINH</h3>
+        <p class="text-slate-300 text-sm">Mỗi lực lượng là một mảnh ghép quan trọng kiến tạo nên ngôi trường hạnh phúc.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-left">
+        <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
+          <div class="text-2xl mb-2">🩺</div>
+          <h4 class="font-bold text-amber-300 text-base">Cán bộ Y tế</h4>
+          <p class="text-xs text-slate-300 mt-1">Khám sàng lọc và chăm sóc sức khỏe ban đầu cho các em học sinh.</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
+          <div class="text-2xl mb-2">👮</div>
+          <h4 class="font-bold text-blue-300 text-base">Lực lượng Công an</h4>
+          <p class="text-xs text-slate-300 mt-1">Bảo đảm an ninh học đường, phòng chống ma túy và kỹ năng PCCC.</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
+          <div class="text-2xl mb-2">🚦</div>
+          <h4 class="font-bold text-emerald-300 text-base">An toàn Giao thông</h4>
+          <p class="text-xs text-slate-300 mt-1">Trang bị kiến thức và kỹ năng tham gia giao thông bình yên.</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
+          <div class="text-2xl mb-2">🏛️</div>
+          <h4 class="font-bold text-purple-300 text-base">Chính quyền địa phương</h4>
+          <p class="text-xs text-slate-300 mt-1">Đồng hành sâu sát, kịp thời hỗ trợ và tháo gỡ khó khăn.</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
+          <div class="text-2xl mb-2">👨‍👩‍👧‍👦</div>
+          <h4 class="font-bold text-rose-300 text-base">Cha mẹ học sinh</h4>
+          <p class="text-xs text-slate-300 mt-1">Đồng hành giáo dục, góp công xây dựng cảnh quan trường lớp.</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
+          <div class="text-2xl mb-2">🏫</div>
+          <h4 class="font-bold text-sky-300 text-base">Nhà trường & Thầy cô</h4>
+          <p class="text-xs text-slate-300 mt-1">Kết nối, lắng nghe, trao truyền tri thức và tình yêu thương.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GÓC ĐỐ VUI CHO HỌC SINH -->
+    <section class="bg-gradient-to-br from-red-500 to-amber-600 text-white rounded-3xl p-6 sm:p-10 shadow-xl relative text-center">
+      <h3 class="text-2xl sm:text-3xl font-black mb-2">Góc Thử Thách Trí Nhớ Của Bé 🎯</h3>
+      <p class="text-red-100 text-sm mb-6">Em hãy chọn câu trả lời đúng nhất nhé!</p>
+
+      <div class="bg-white text-slate-800 rounded-2xl p-6 text-left max-w-xl mx-auto shadow-2xl">
+        <h4 class="font-extrabold text-base sm:text-lg mb-4 text-slate-900">
+          Có bao nhiêu bạn học sinh trường Tiểu học Tả Phìn đã được cán bộ y tế khám sức khỏe sàng lọc ban đầu?
+        </h4>
+        <div class="space-y-2.5">
+          <button onclick="checkQuiz(this, true)" class="w-full text-left p-3 rounded-xl border-2 border-slate-200 hover:border-orange-400 hover:bg-orange-50 font-bold text-sm transition-all">
+            A. 452 / 452 em học sinh
+          </button>
+          <button onclick="checkQuiz(this, false)" class="w-full text-left p-3 rounded-xl border-2 border-slate-200 hover:border-orange-400 hover:bg-orange-50 font-bold text-sm transition-all">
+            B. 250 em học sinh
+          </button>
+          <button onclick="checkQuiz(this, false)" class="w-full text-left p-3 rounded-xl border-2 border-slate-200 hover:border-orange-400 hover:bg-orange-50 font-bold text-sm transition-all">
+            C. 300 em học sinh
+          </button>
+        </div>
+        <div id="quiz-msg" class="mt-4 p-3 rounded-xl hidden text-sm font-bold"></div>
+      </div>
+    </section>
+
+    <!-- NÚT THẢ TIM & CHIA SẺ -->
+    <section class="bg-amber-50 border-2 border-dashed border-amber-300 rounded-3xl p-6 sm:p-8 text-center">
+      <span class="text-4xl mb-2 inline-block">💖</span>
+      <h3 class="text-xl sm:text-2xl font-black text-slate-900 mb-2">Thả Tim Cổ Vũ Tinh Thần Dân Vận Khéo Tả Phìn!</h3>
+      <p class="text-slate-600 text-sm max-w-md mx-auto mb-5">Một nút chạm gửi gắm niềm tin yêu đến các thầy cô giáo và các bạn học sinh vùng cao Sa Pa!</p>
+      
+      <div class="flex items-center justify-center gap-4">
+        <button onclick="likeArticle()" class="bg-red-500 hover:bg-red-600 text-white font-bold px-6 py-3 rounded-2xl shadow-lg flex items-center gap-2 text-base active:scale-95 transition-all">
+          <i class="fa-solid fa-heart animate-ping"></i>
+          <span>Thả Tim</span>
+          <span id="like-count" class="bg-red-700 text-xs px-2.5 py-0.5 rounded-full ml-1">256</span>
+        </button>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Đã sao chép liên kết phóng sự!');" class="bg-white hover:bg-slate-100 text-slate-700 font-bold px-5 py-3 rounded-2xl shadow border border-slate-200 flex items-center gap-2 text-base active:scale-95 transition-all">
+          <i class="fa-solid fa-share-nodes text-orange-500"></i>
+          <span>Chia Sẻ</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-300 py-12 px-4 mt-16 border-t-4 border-orange-500">
+    <div class="max-w-4xl mx-auto text-center space-y-4">
+      <div class="flex items-center justify-center gap-2 text-2xl font-black text-white">
+        <span>🤝</span> Trường Tiểu Học Tả Phìn - Thị Xã Sa Pa
+      </div>
+      <p class="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto leading-relaxed">
+        Chuyên san tuyên truyền phong trào "Dân vận khéo" - Chung tay chăm lo cho sự nghiệp giáo dục vùng cao xã Tả Phìn, thị xã Sa Pa, tỉnh Lào Cai.
+      </p>
+      <div class="text-[11px] text-slate-400 pt-3">
+        &copy; 2026 Bản quyền nội dung & hình ảnh thuộc Trường Tiểu Học Tả Phìn.
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT TƯƠNG TÁC -->
+  <script>
+    // 1. Tiến độ đọc
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('reading-progress').style.width = scrolled + '%';
+    });
+
+    // 2. Pháo hoa confetti
+    function triggerConfetti() {
+      if (typeof confetti === 'function') {
+        confetti({ particleCount: 90, spread: 75, origin: { y: 0.6 } });
+      }
+    }
+
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        if (typeof confetti === 'function') {
+          confetti({ particleCount: 50, spread: 60, origin: { y: 0.8 } });
+        }
+      }, 700);
+    });
+
+    // 3. Mini quiz
+    function checkQuiz(btn, isCorrect) {
+      const msg = document.getElementById('quiz-msg');
+      const allBtn = btn.parentElement.querySelectorAll('button');
+      allBtn.forEach(b => b.disabled = true);
+
+      if (isCorrect) {
+        btn.classList.add('bg-emerald-100', 'border-emerald-500', 'text-emerald-900');
+        msg.className = "mt-4 p-4 rounded-xl bg-emerald-100 text-emerald-800 border border-emerald-300 font-bold block";
+        msg.innerHTML = "🎉 XUẤT SẮC! Đúng 452/452 em học sinh của trường đã được khám sức khỏe chu đáo!";
+        triggerConfetti();
+      } else {
+        btn.classList.add('bg-rose-100', 'border-rose-500', 'text-rose-900');
+        msg.className = "mt-4 p-4 rounded-xl bg-amber-100 text-amber-900 border border-amber-300 font-bold block";
+        msg.innerHTML = "Chưa đúng rồi! Đáp án đúng là: <strong>A. 452 / 452 em học sinh</strong> nhé!";
+      }
+    }
+
+    // 4. Thả tim
+    let likes = 256;
+    function likeArticle() {
+      likes++;
+      document.getElementById('like-count').innerText = likes;
+      triggerConfetti();
+    }
+
+    // 5. Đọc giọng nói Tiếng Việt
+    let isSpeaking = false;
+    let synth = window.speechSynthesis;
+    let speechUtterance = null;
+
+    function toggleTextToSpeech() {
+      if (!('speechSynthesis' in window)) {
+        alert("Trình duyệt chưa hỗ trợ giọng đọc.");
+        return;
+      }
+
+      const ttsBtn = document.getElementById('tts-btn');
+
+      if (isSpeaking) {
+        synth.cancel();
+        isSpeaking = false;
+        ttsBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+        return;
+      }
+
+      const text = "Phóng sự: Dân vận khéo – Nhiều cánh tay nối dài vì học sinh vùng cao. Tại Trường Tiểu học Tả Phìn, xã Tả Phìn, thị xã Sa Pa, chăm lo cho học sinh không chỉ là câu chuyện của những người đứng trên bục giảng. Từ cán bộ y tế, lực lượng công an, cán bộ giao thông đến chính quyền địa phương và cha mẹ học sinh, mỗi lực lượng một phần việc cùng tạo nên môi trường học tập an toàn, lành mạnh.";
+
+      speechUtterance = new SpeechSynthesisUtterance(text);
+      speechUtterance.lang = 'vi-VN';
+      speechUtterance.rate = 0.95;
+
+      speechUtterance.onend = () => {
+        isSpeaking = false;
+        ttsBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+      };
+
+      synth.speak(speechUtterance);
+      isSpeaking = true;
+      ttsBtn.innerHTML = '<i class="fa-solid fa-stop"></i>';
+    }
+  </script>
+</body>
+</html>
