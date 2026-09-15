@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "tieuhoctaphin",
     "public": "public",
     "ignore": [
       "firebase.json",
