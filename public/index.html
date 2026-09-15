@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dân Vận Khéo – Nhiều Cánh Tay Nối Dài Vì Học Sinh Vùng Cao | Trường Tiểu Học Tả Phìn</title>
-  <meta name="description" content="Chuyên san báo điện tử Trường Tiểu học Tả Phìn: Dân vận khéo - Nhiều cánh tay nối dài vì học sinh vùng cao. Sự đồng hành của y tế, công an, chính quyền và cha mẹ học sinh.">
+  <meta name="description" content="Chuyên trang báo điện tử Trường Tiểu học Tả Phìn: Dân vận khéo - Nhiều cánh tay nối dài vì học sinh vùng cao. Phóng sự ảnh chuyên sâu về sự đồng hành của y tế, công an, chính quyền và phụ huynh.">
   
   <!-- Favicon & Font Awesome -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤝</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <!-- Google Fonts: Nunito & Be Vietnam Pro -->
+  <!-- Google Fonts: Be Vietnam Pro & Merriweather -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS & Confetti -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -24,28 +24,20 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Nunito', 'Be Vietnam Pro', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'Be Vietnam Pro', 'sans-serif'],
+            serif: ['Merriweather', 'Georgia', 'serif'],
             heading: ['Be Vietnam Pro', 'sans-serif'],
           },
           colors: {
-            brand: {
-              red: '#dc2626',
-              orange: '#ea580c',
-              amber: '#d97706',
-              emerald: '#059669',
-              blue: '#0284c7',
-              indigo: '#4f46e5',
-              dark: '#0f172a'
-            }
-          },
-          animation: {
-            'bounce-slow': 'bounce 3s infinite',
-            'float': 'floating 4s ease-in-out infinite',
-          },
-          keyframes: {
-            floating: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-10px)' },
+            editorial: {
+              red: '#b91c1c',
+              crimson: '#991b1b',
+              gold: '#d97706',
+              amber: '#b45309',
+              dark: '#0f172a',
+              slate: '#334155',
+              cream: '#fdfbf7',
+              border: '#e2e8f0'
             }
           }
         }
@@ -54,675 +46,507 @@
   </script>
 
   <style>
-    /* Thanh cuộn */
-    ::-webkit-scrollbar { width: 10px; }
+    /* Thanh cuộn hiện đại */
+    ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #f8fafc; }
-    ::-webkit-scrollbar-thumb { background: #f97316; border-radius: 999px; border: 2px solid #f8fafc; }
-    ::-webkit-scrollbar-thumb:hover { background: #ea580c; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 
     /* Reading Progress Bar */
     #reading-progress {
       position: fixed;
       top: 0;
       left: 0;
-      height: 6px;
-      background: linear-gradient(90deg, #ef4444, #f97316, #eab308, #10b981, #06b6d4, #6366f1);
+      height: 4px;
+      background: linear-gradient(90deg, #b91c1c, #d97706, #059669);
       width: 0%;
       z-index: 100;
       transition: width 0.1s ease-out;
-      border-radius: 0 4px 4px 0;
     }
 
-    .hero-sapa-bg {
-      background: linear-gradient(180deg, #fef2f2 0%, #fff7ed 45%, #ffffff 100%);
-    }
-
-    .photo-card {
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .photo-card:hover {
-      transform: translateY(-6px) scale(1.01);
-      box-shadow: 0 25px 35px -12px rgba(234, 88, 12, 0.25);
-    }
-
-    /* HIỆU ỨNG TIÊU ĐỀ NHẤP NHÁY / PHÁT SÁNG NGHỆ THUẬT (BLINK & GLOW) */
-    @keyframes titleBlinkGlow {
+    /* HIỆU ỨNG TIÊU ĐỀ SANG TRỌNG (ELEGANT GLOW) */
+    @keyframes modernGlow {
       0%, 100% {
-        color: #1e293b;
-        text-shadow: 0 0 12px rgba(249, 115, 22, 0.4), 0 0 24px rgba(220, 38, 38, 0.2);
-        transform: scale(1);
+        color: #0f172a;
+        text-shadow: 0 0 20px rgba(185, 28, 28, 0.25), 0 2px 4px rgba(0,0,0,0.1);
       }
       50% {
-        color: #b91c1c;
-        text-shadow: 0 0 20px rgba(239, 68, 68, 0.8), 0 0 38px rgba(249, 115, 22, 0.7), 0 0 55px rgba(234, 179, 8, 0.5);
-        transform: scale(1.015);
+        color: #991b1b;
+        text-shadow: 0 0 35px rgba(217, 119, 6, 0.45), 0 0 15px rgba(185, 28, 28, 0.35);
       }
     }
 
-    @keyframes badgeBlink {
-      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
-      50% { opacity: 0.6; box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
-    }
-
-    @keyframes gradientShift {
+    @keyframes subtleShimmer {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
-    .hero-blinking-title {
-      animation: titleBlinkGlow 2.8s ease-in-out infinite;
-      display: inline-block;
-      transition: all 0.3s;
+    .editorial-title {
+      animation: modernGlow 4s ease-in-out infinite;
+      letter-spacing: -0.025em;
     }
 
-    .shimmer-text {
-      background: linear-gradient(90deg, #dc2626, #ea580c, #d97706, #059669, #0284c7, #dc2626);
-      background-size: 300% 300%;
+    .luxury-gold-text {
+      background: linear-gradient(135deg, #b45309 0%, #d97706 30%, #f59e0b 50%, #d97706 70%, #92400e 100%);
+      background-size: 200% 200%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: gradientShift 4.5s ease infinite;
-      text-shadow: 0 0 25px rgba(249, 115, 22, 0.3);
+      animation: subtleShimmer 5s ease infinite;
     }
 
-    .blink-dot {
-      animation: badgeBlink 1.4s infinite ease-in-out;
+    /* Khung ảnh tạp chí cao cấp */
+    .magazine-photo {
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .magazine-photo:hover {
+      transform: scale(1.008);
+      box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.15);
+    }
+
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-orange-200 selection:text-orange-950">
+<body class="bg-[#fcfbf9] text-slate-800 font-sans antialiased selection:bg-amber-100 selection:text-amber-900">
 
-  <!-- Thanh đọc bài tiến độ -->
+  <!-- Reading Progress Bar -->
   <div id="reading-progress"></div>
 
-  <!-- Nút tiện ích: Đọc to giọng nói & Về đầu trang -->
+  <!-- Nút tiện ích: Đọc bài & Về đầu trang -->
   <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
-    <button id="tts-btn" onclick="toggleTextToSpeech()" title="Bật/Tắt đọc bằng giọng nói cho học sinh" class="w-14 h-14 bg-gradient-to-tr from-rose-500 to-amber-500 text-white rounded-full shadow-2xl flex items-center justify-center text-xl hover:scale-110 active:scale-95 transition-all border-4 border-white group">
-      <i class="fa-solid fa-volume-high group-hover:animate-bounce"></i>
-      <span class="absolute right-16 bg-slate-900 text-white text-xs font-bold py-1.5 px-3 rounded-lg shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-        🔊 Nghe đọc bài báo
+    <button id="tts-btn" onclick="toggleTextToSpeech()" title="Nghe đọc bài báo" class="w-13 h-13 p-3.5 bg-slate-900/90 backdrop-blur-md text-amber-400 hover:text-white rounded-full shadow-2xl flex items-center justify-center text-lg hover:bg-slate-950 active:scale-95 transition-all border border-slate-700/50 group">
+      <i class="fa-solid fa-volume-high"></i>
+      <span class="absolute right-14 bg-slate-900 text-white text-xs font-semibold py-1.5 px-3 rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+        Nghe đọc phóng sự
       </span>
     </button>
-    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Về đầu trang" class="w-12 h-12 bg-white text-orange-600 rounded-full shadow-lg flex items-center justify-center text-lg hover:bg-orange-50 active:scale-95 transition-all border border-orange-200">
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Lên đầu trang" class="w-13 h-13 p-3.5 bg-white/95 backdrop-blur-md text-slate-700 hover:text-red-700 rounded-full shadow-xl flex items-center justify-center text-base hover:bg-white active:scale-95 transition-all border border-slate-200">
       <i class="fa-solid fa-arrow-up"></i>
     </button>
   </div>
 
-  <!-- HEADER BÁO ĐIỆN TỬ HỌC ĐƯỜNG -->
-  <header class="border-b border-orange-100 bg-white/95 backdrop-blur-md sticky top-0 z-40">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+  <!-- TOP BAR: BÁO CHÍ HIỆN ĐẠI -->
+  <header class="border-b border-slate-200/80 bg-white/90 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+      <!-- Logo & Chuyên san -->
       <div class="flex items-center gap-3">
-        <span class="text-3xl animate-bounce-slow">🤝</span>
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-red-700 to-amber-600 text-white flex items-center justify-center font-black text-sm shadow-sm">
+          TP
+        </div>
         <div>
-          <span class="text-xs font-black tracking-widest text-red-600 uppercase flex items-center gap-1.5">
-            <span class="inline-block w-2.5 h-2.5 rounded-full bg-red-600 blink-dot"></span>
+          <div class="text-[11px] font-bold tracking-widest text-red-700 uppercase flex items-center gap-1.5">
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-red-600 animate-ping"></span>
             CHUYÊN SAN DÂN VẬN KHÉO
-          </span>
-          <h1 class="text-lg md:text-xl font-extrabold text-slate-900 flex items-center gap-2">
-            Tiểu học Tả Phìn <span class="bg-red-100 text-red-700 text-xs px-2.5 py-0.5 rounded-full border border-red-300 font-black">Phóng Sự Ảnh</span>
-          </h1>
+          </div>
+          <div class="text-sm sm:text-base font-extrabold text-slate-900 tracking-tight">
+            Tiểu học Tả Phìn <span class="text-slate-400 font-normal mx-1">|</span> <span class="text-slate-500 text-xs font-semibold uppercase">Phóng Sự Ảnh</span>
+          </div>
         </div>
       </div>
 
-      <div class="hidden sm:flex items-center gap-3 text-xs font-bold text-slate-600 bg-orange-50 px-4 py-1.5 rounded-full border border-orange-200 shadow-sm">
-        <span class="flex items-center gap-1.5"><i class="fa-regular fa-calendar text-orange-600"></i> Năm học 2026-2027</span>
-        <span>•</span>
-        <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-red-600"></i> Xã Tả Phìn, tỉnh Lào Cai</span>
+      <!-- Thời gian & Địa danh -->
+      <div class="hidden md:flex items-center gap-4 text-xs font-medium text-slate-500 bg-slate-50 px-4 py-1.5 rounded-full border border-slate-200">
+        <span class="flex items-center gap-1.5 text-slate-700 font-semibold"><i class="fa-regular fa-calendar text-amber-600"></i> Năm học 2026-2027</span>
+        <span class="text-slate-300">•</span>
+        <span class="flex items-center gap-1.5 text-slate-700 font-semibold"><i class="fa-solid fa-location-dot text-red-600"></i> Xã Tả Phìn, tỉnh Lào Cai</span>
       </div>
 
+      <!-- Tương tác cổ vũ -->
       <div>
-        <button onclick="triggerConfetti()" class="bg-gradient-to-r from-red-500 via-orange-500 to-amber-500 hover:from-red-600 hover:to-amber-600 text-white text-xs md:text-sm font-black px-4 py-2 rounded-full shadow-md flex items-center gap-1.5 transform active:scale-95 transition-all">
-          <i class="fa-solid fa-hands-clapping"></i> Cổ Vũ Thầy Trò! 🎉
+        <button onclick="triggerConfetti()" class="bg-slate-900 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded-full shadow-sm flex items-center gap-2 transform active:scale-95 transition-all">
+          <i class="fa-solid fa-hands-clapping text-amber-400"></i> Cổ Vũ Thầy Trò
         </button>
       </div>
     </div>
   </header>
 
-  <!-- HERO BANNER BÁO ĐIỆN TỬ VỚI ẢNH NỀN MỜ LỚP HỌC HẠNH PHÚC -->
-  <section class="pt-12 pb-16 px-4 relative overflow-hidden bg-orange-50/40">
-    <!-- Ảnh nền cô giáo và học sinh Lớp học hạnh phúc hiển thị rõ ràng và làm mờ nhẹ -->
-    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-      <img src="images/hero_bg.jpg" alt="Lớp học hạnh phúc Tiểu học Tả Phìn" class="w-full h-full object-cover object-top filter blur-[2px] opacity-65 scale-105 transition-all">
-      <div class="absolute inset-0 bg-gradient-to-b from-white/70 via-white/55 to-white/95"></div>
+  <!-- HERO BANNER SANG TRỌNG VỚI ẢNH NỀN CÔ GIÁO & HỌC SINH -->
+  <section class="relative pt-16 pb-20 px-4 sm:px-6 overflow-hidden border-b border-slate-200">
+    
+    <!-- Lớp ảnh nền cô giáo: phủ mờ nghệ thuật & căn chuẩn trung tâm -->
+    <div class="absolute inset-0 z-0">
+      <img src="images/hero_bg.jpg" alt="Lớp học hạnh phúc Trường Tiểu học Tả Phìn" class="w-full h-full object-cover object-[center_28%] filter blur-[2px] opacity-45 scale-105">
+      <!-- Gradient overlay tạo độ tương phản cao cấp -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#fcfbf9]/95 via-[#fcfbf9]/80 to-[#fcfbf9]"></div>
     </div>
-    <div class="absolute top-6 left-8 text-4xl opacity-35 animate-float">🌿</div>
-    <div class="absolute top-12 right-10 text-5xl opacity-30 animate-float" style="animation-delay: 2s;">⛰️</div>
-    <div class="absolute bottom-6 left-1/3 text-2xl opacity-20">✨</div>
-    <div class="absolute top-1/4 right-1/4 text-3xl opacity-25">🎈</div>
 
     <div class="max-w-4xl mx-auto text-center relative z-10">
-      <!-- Badge Danh mục -->
-      <div class="inline-flex items-center gap-2 bg-white/95 backdrop-blur-sm border-2 border-red-200 px-4 py-1.5 rounded-full shadow-md mb-6">
-        <span class="text-base animate-pulse">🌟</span>
-        <span class="text-xs md:text-sm font-black text-red-700 uppercase tracking-wider">MÔ HÌNH DÂN VẬN KHÉO TIÊU BIỂU</span>
-        <span class="w-2 h-2 rounded-full bg-emerald-500 blink-dot"></span>
+      
+      <!-- Tag chủ đề tinh tế -->
+      <div class="inline-flex items-center gap-2 bg-white/95 backdrop-blur-md border border-amber-200/80 px-4 py-1.5 rounded-full shadow-sm mb-6">
+        <span class="w-2 h-2 rounded-full bg-red-600"></span>
+        <span class="text-[11px] sm:text-xs font-bold text-slate-800 uppercase tracking-widest">Mô Hình Dân Vận Khéo Tiêu Biểu</span>
       </div>
 
-      <!-- TIÊU ĐỀ CHÍNH VỚI HIỆU ỨNG NHẤP NHÁY / PHÁT SÁNG NGHỆ THUẬT -->
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight md:leading-snug mb-6 font-heading">
-        <span class="hero-blinking-title">
+      <!-- TIÊU ĐỀ BÁO CHÍ SANG TRỌNG & HIỆN ĐẠI -->
+      <h1 class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.2] md:leading-[1.18] mb-6 font-heading text-slate-900">
+        <span class="editorial-title block">
           DÂN VẬN KHÉO – NHIỀU CÁNH TAY NỐI DÀI
         </span>
-        <br class="hidden sm:inline">
-        <span class="shimmer-text font-black inline-block mt-2 sm:mt-1">
-          VÌ HỌC SINH VÙNG CAO 🎓
+        <span class="luxury-gold-text block mt-2">
+          VÌ HỌC SINH VÙNG CAO
         </span>
-        <br>
-        <span class="hero-blinking-title text-slate-800 mt-2 inline-block text-2xl sm:text-3xl md:text-4xl">
+        <span class="text-xl sm:text-2xl md:text-3xl font-semibold text-slate-600 block mt-3 font-serif italic">
           Tại Trường Tiểu Học Tả Phìn
         </span>
-      </h2>
+      </h1>
 
-      <!-- Subtitle & Các lực lượng đồng hành -->
-      <div class="flex flex-wrap items-center justify-center gap-2.5 text-xs sm:text-sm text-slate-700 font-bold max-w-3xl mx-auto">
-        <span class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full shadow-sm border border-slate-200">
-          <i class="fa-solid fa-hospital-user text-rose-500"></i> Y Tế Xã
+      <!-- Thanh lực lượng liên kết -->
+      <div class="flex flex-wrap items-center justify-center gap-2 text-xs text-slate-700 font-semibold max-w-2xl mx-auto mb-10">
+        <span class="bg-white/90 backdrop-blur-sm px-3.5 py-1.5 rounded-lg border border-slate-200 shadow-sm flex items-center gap-1.5">
+          <i class="fa-solid fa-stethoscope text-emerald-600"></i> Y Tế Xã
         </span>
-        <span class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full shadow-sm border border-slate-200">
+        <span class="bg-white/90 backdrop-blur-sm px-3.5 py-1.5 rounded-lg border border-slate-200 shadow-sm flex items-center gap-1.5">
           <i class="fa-solid fa-shield-halved text-blue-600"></i> Công An Xã
         </span>
-        <span class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full shadow-sm border border-slate-200">
-          <i class="fa-solid fa-traffic-light text-amber-500"></i> Giao Thông
+        <span class="bg-white/90 backdrop-blur-sm px-3.5 py-1.5 rounded-lg border border-slate-200 shadow-sm flex items-center gap-1.5">
+          <i class="fa-solid fa-traffic-light text-amber-600"></i> An Toàn Giao Thông
         </span>
-        <span class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full shadow-sm border border-slate-200">
-          <i class="fa-solid fa-building-columns text-emerald-600"></i> Chính Quyền Địa Phương
+        <span class="bg-white/90 backdrop-blur-sm px-3.5 py-1.5 rounded-lg border border-slate-200 shadow-sm flex items-center gap-1.5">
+          <i class="fa-solid fa-landmark text-indigo-600"></i> Chính Quyền Địa Phương
         </span>
-        <span class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full shadow-sm border border-slate-200">
-          <i class="fa-solid fa-heart text-red-500"></i> Cha Mẹ Học Sinh
+        <span class="bg-white/90 backdrop-blur-sm px-3.5 py-1.5 rounded-lg border border-slate-200 shadow-sm flex items-center gap-1.5">
+          <i class="fa-solid fa-users text-rose-600"></i> Cha Mẹ Học Sinh
         </span>
       </div>
 
-      <!-- Lead Paragraph -->
-      <div class="mt-8 bg-white/95 backdrop-blur-md rounded-2xl p-6 sm:p-8 shadow-xl border-2 border-orange-200 text-left relative">
-        <div class="absolute -top-4 left-6 bg-gradient-to-r from-red-600 to-orange-500 text-white text-xs font-black uppercase px-3.5 py-1 rounded-full shadow">
-          📌 Thông Điệp Nhân Văn
+      <!-- Khung Sa-pô (Lead Paragraph) chuẩn tạp chí Editorial -->
+      <div class="glass-panel rounded-2xl p-6 sm:p-8 shadow-xl border border-amber-200/60 text-left relative max-w-3xl mx-auto">
+        <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-800 mb-3">
+          <span class="w-1 h-3.5 bg-red-600 rounded-full inline-block"></span>
+          Thông Điệp Khởi Đầu
         </div>
-        <p class="text-slate-700 text-base sm:text-lg leading-relaxed font-semibold italic text-justify">
+        <p class="text-slate-800 text-base sm:text-lg leading-relaxed font-serif italic text-justify">
           &ldquo;Tại Trường Tiểu học Tả Phìn, xã Tả Phìn, tỉnh Lào Cai, chăm lo cho học sinh không chỉ là câu chuyện của những người đứng trên bục giảng. Từ cán bộ y tế, lực lượng công an, cán bộ tuyên truyền an toàn giao thông đến chính quyền địa phương và cha mẹ học sinh, mỗi lực lượng một phần việc, cùng tạo nên một môi trường học tập an toàn, lành mạnh. Những việc làm cụ thể ấy đang cho thấy một cách làm dân vận gần gũi: gần học sinh, gần phụ huynh, gần cộng đồng và cùng hướng đến mục tiêu nâng cao chất lượng giáo dục.&rdquo;
         </p>
       </div>
+
     </div>
   </section>
 
-  <!-- NỘI DUNG PHÓNG SỰ CHÍNH -->
-  <main class="max-w-4xl mx-auto px-4 py-8 space-y-12">
+  <!-- NỘI DUNG PHÓNG SỰ CHUYÊN SÂU -->
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-12 space-y-14">
 
-    <!-- PHẦN 1: KHI NHÀ TRƯỜNG KHÔNG ĐI MỘT MÌNH -->
-    <article class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-100">
-      <div class="flex items-center gap-3 mb-6 border-b border-slate-100 pb-4">
-        <span class="w-11 h-11 rounded-2xl bg-red-100 text-red-600 flex items-center justify-center font-black text-lg">01</span>
-        <div>
-          <span class="text-xs font-bold text-red-600 uppercase tracking-widest">Sợi Dây Liên Kết</span>
-          <h3 class="text-xl sm:text-2xl font-black text-slate-900">Khi Nhà Trường Không Đi Một Mình</h3>
-        </div>
+    <!-- PHẦN 1 -->
+    <article class="space-y-5">
+      <div class="flex items-baseline gap-3 border-b border-slate-200 pb-3">
+        <span class="text-2xl font-black text-red-700 font-heading">01</span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 font-heading">
+          Khi Nhà Trường Không Đi Một Mình
+        </h2>
       </div>
 
-      <div class="text-slate-700 text-base sm:text-lg leading-relaxed space-y-4 text-justify font-sans">
-        <p>
-          Mỗi ngày đến trường của một học sinh vùng cao là hành trình bắt đầu từ gia đình, đi qua cộng đồng và kết thúc ở lớp học. Vì thế, để các em học tập, rèn luyện và trưởng thành, những gì diễn ra trong lớp học thôi chưa đủ.
-        </p>
-        <p>
-          Ở Trường Tiểu học Tả Phìn, sự phối hợp giữa nhà trường với các lực lượng tại địa phương được thể hiện bằng những việc làm cụ thể, gắn trực tiếp với cuộc sống của học sinh.
-        </p>
-        <p>
-          Không phải những điều lớn lao, đó có thể là một buổi khám sức khỏe ngay tại trường; một buổi tuyên truyền để các em hiểu hơn về an toàn giao thông; những hướng dẫn về phòng cháy, chữa cháy và kỹ năng cứu nạn, cứu hộ; sự quan tâm, thăm hỏi của chính quyền địa phương hay những ngày cha mẹ học sinh cùng đến trường lao động.
-        </p>
-        <div class="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-2xl my-4 text-orange-900 font-bold text-sm sm:text-base">
-          ✨ Mỗi hoạt động giải quyết một nhu cầu thiết thực. Nhưng khi đặt cạnh nhau, những việc làm ấy tạo thành một sợi dây liên kết giữa <strong>nhà trường – gia đình – chính quyền – các lực lượng xã hội và cộng đồng</strong>. Đó cũng là cách “Dân vận khéo” được cụ thể hóa từ những công việc gần gũi nhất.
-        </div>
+      <p class="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
+        Mỗi ngày đến trường của một học sinh vùng cao là hành trình bắt đầu từ gia đình, đi qua cộng đồng và kết thúc ở lớp học. Vì thế, để các em học tập, rèn luyện và trưởng thành, những gì diễn ra trong lớp học thôi chưa đủ.
+      </p>
+      <p class="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
+        Ở Trường Tiểu học Tả Phìn, sự phối hợp giữa nhà trường với các lực lượng tại địa phương được thể hiện bằng những việc làm cụ thể, gắn trực tiếp với cuộc sống của học sinh. Không phải những điều lớn lao, đó có thể là một buổi khám sức khỏe ngay tại trường; một buổi tuyên truyền để các em hiểu hơn về an toàn giao thông; những hướng dẫn về phòng cháy, chữa cháy và kỹ năng cứu nạn, cứu hộ; sự quan tâm, thăm hỏi của chính quyền địa phương hay những ngày cha mẹ học sinh cùng đến trường lao động.
+      </p>
+      
+      <div class="p-5 rounded-2xl bg-amber-50/60 border-l-4 border-amber-600 my-6 text-slate-800 text-base leading-relaxed font-serif italic">
+        Mỗi hoạt động giải quyết một nhu cầu thiết thực. Nhưng khi đặt cạnh nhau, những việc làm ấy tạo thành một sợi dây liên kết giữa <strong>nhà trường – gia đình – chính quyền – các lực lượng xã hội và cộng đồng</strong>. Đó cũng là cách “Dân vận khéo” được cụ thể hóa từ những công việc gần gũi nhất.
       </div>
     </article>
 
-    <!-- PHẦN 2: CHĂM SÓC SỨC KHỎE HỌC ĐƯỜNG (ẢNH 1 TRONG WORD = image2.jpeg) -->
-    <article class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-100 space-y-6">
-      <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
-        <span class="w-11 h-11 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-black text-lg">02</span>
-        <div>
-          <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest">Y Tế Học Đường</span>
-          <h3 class="text-xl sm:text-2xl font-black text-slate-900">Chăm Lo Cho Học Sinh Từ Những Điều Thiết Thực</h3>
-        </div>
+    <!-- PHẦN 2 & [ẢNH 1] -->
+    <article class="space-y-6">
+      <div class="flex items-baseline gap-3 border-b border-slate-200 pb-3">
+        <span class="text-2xl font-black text-emerald-700 font-heading">02</span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 font-heading">
+          Chăm Lo Cho Học Sinh Từ Những Điều Thiết Thực
+        </h2>
       </div>
 
-      <div class="text-slate-700 text-base sm:text-lg leading-relaxed space-y-4 text-justify font-sans">
-        <p>
-          Một đứa trẻ muốn học tập tốt trước hết cần có sức khỏe tốt. Với học sinh tiểu học, việc theo dõi, chăm sóc sức khỏe không chỉ giúp phát hiện những vấn đề cần lưu ý mà còn góp phần hình thành cho các em ý thức quan tâm đến chính bản thân mình.
-        </p>
-        <p>
-          Tại Trường Tiểu học Tả Phìn, cán bộ y tế xã đã phối hợp với nhà trường thực hiện khám sức khỏe cho học sinh. Những chiếc bàn khám, những lượt học sinh được kiểm tra sức khỏe ngay tại trường có thể là hình ảnh rất đỗi bình thường. Nhưng phía sau đó là sự phối hợp giữa hai đơn vị cùng hướng tới một mục tiêu chung: chăm lo tốt hơn cho học sinh.
-        </p>
-        <p>
-          Trong công tác giáo dục, có những kết quả không thể đo bằng điểm số. Một học sinh khỏe mạnh, được quan tâm đúng lúc, được thầy cô và gia đình theo dõi, chăm sóc cũng là một điều kiện quan trọng để các em yên tâm học tập. Và để chăm lo cho các em một cách đầy đủ hơn, nhà trường cần đến sự đồng hành của cả cộng đồng.
-        </p>
-      </div>
+      <p class="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
+        Một đứa trẻ muốn học tập tốt trước hết cần có sức khỏe tốt. Với học sinh tiểu học, việc theo dõi, chăm sóc sức khỏe không chỉ giúp phát hiện những vấn đề cần lưu ý mà còn góp phần hình thành cho các em ý thức quan tâm đến chính bản thân mình.
+      </p>
+      <p class="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
+        Tại Trường Tiểu học Tả Phìn, cán bộ y tế xã đã phối hợp với nhà trường thực hiện khám sức khỏe cho học sinh. Những chiếc bàn khám, những lượt học sinh được kiểm tra sức khỏe ngay tại trường có thể là hình ảnh rất đỗi bình thường. Nhưng phía sau đó là sự phối hợp giữa hai đơn vị cùng hướng tới một mục tiêu chung: chăm lo tốt hơn cho học sinh.
+      </p>
 
-      <!-- [ẢNH 1 THEO FILE WORD] -->
-      <div class="photo-card bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-emerald-200">
-        <div class="relative group">
-          <img src="images/image2.jpeg" alt="Cán bộ y tế xã phối hợp với Trường Tiểu học Tả Phìn khám sức khỏe cho học sinh" class="w-full h-auto object-cover max-h-[580px] transition-transform duration-500 group-hover:scale-[1.02]">
-          <div class="absolute top-4 left-4 bg-emerald-600/90 backdrop-blur-md text-white px-3.5 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-lg">
-            <i class="fa-solid fa-stethoscope"></i> [ẢNH 1] CÁN BỘ Y TẾ XÃ KHÁM SỨC KHỎE HỌC SINH
-          </div>
-        </div>
-        <div class="p-5 bg-gradient-to-r from-emerald-50 via-white to-teal-50 border-t border-emerald-100">
-          <p class="font-bold text-slate-800 text-sm sm:text-base leading-snug">
-            Cán bộ y tế xã phối hợp với Trường Tiểu học Tả Phìn khám sức khỏe cho học sinh. 452/452 em học sinh được khám sàng lọc sức khỏe ban đầu.
-          </p>
-        </div>
-      </div>
+      <!-- [ẢNH 1 TRONG FILE WORD = image2.jpeg] -->
+      <figure class="magazine-photo bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+        <img src="images/image2.jpeg" alt="Cán bộ y tế xã phối hợp với Trường Tiểu học Tả Phìn khám sức khỏe cho học sinh" class="w-full h-auto object-cover max-h-[520px]">
+        <figcaption class="p-4 bg-slate-50 border-t border-slate-100 text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+          <strong class="text-emerald-700 font-bold">[ẢNH 1]</strong> Cán bộ y tế xã phối hợp với Trường Tiểu học Tả Phìn khám sức khỏe cho học sinh. 452/452 em học sinh được khám sàng lọc sức khỏe ban đầu chu đáo.
+        </figcaption>
+      </figure>
+
+      <p class="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
+        Trong công tác giáo dục, có những kết quả không thể đo bằng điểm số. Một học sinh khỏe mạnh, được quan tâm đúng lúc, được thầy cô và gia đình theo dõi, chăm sóc cũng là một điều kiện quan trọng để các em yên tâm học tập. Và để chăm lo cho các em một cách đầy đủ hơn, nhà trường cần đến sự đồng hành của cả cộng đồng.
+      </p>
     </article>
 
-    <!-- PHẦN 3: MÔI TRƯỜNG AN TOÀN - CÔNG AN ĐỒNG HÀNH (ẢNH 2 & ẢNH 3 TRONG WORD) -->
-    <article class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-100 space-y-6">
-      <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
-        <span class="w-11 h-11 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center font-black text-lg">03</span>
-        <div>
-          <span class="text-xs font-bold text-blue-600 uppercase tracking-widest">An Ninh & Kỹ Năng Sống</span>
-          <h3 class="text-xl sm:text-2xl font-black text-slate-900">Cùng Xây Dựng Một Môi Trường Học Tập An Toàn</h3>
-        </div>
+    <!-- PHẦN 3 & [ẢNH 2, ẢNH 3] -->
+    <article class="space-y-6">
+      <div class="flex items-baseline gap-3 border-b border-slate-200 pb-3">
+        <span class="text-2xl font-black text-blue-700 font-heading">03</span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 font-heading">
+          Cùng Xây Dựng Một Môi Trường Học Tập An Toàn
+        </h2>
       </div>
 
-      <div class="text-slate-700 text-base sm:text-lg leading-relaxed space-y-4 text-justify font-sans">
-        <p>
-          Một môi trường giáo dục tốt không chỉ cần tri thức mà còn phải an toàn. Từ phòng ngừa nguy cơ đến trang bị kỹ năng ứng phó, sự phối hợp với lực lượng công an giúp những kiến thức vốn tưởng như xa với học sinh trở nên gần gũi hơn thông qua những hoạt động trực tiếp tại trường.
-        </p>
-        <p>
-          Công tác kiểm tra, test ma túy theo kế hoạch đối với đội ngũ giáo viên là một hoạt động thể hiện sự quan tâm đến việc phòng ngừa nguy cơ, góp phần xây dựng môi trường giáo dục an toàn, lành mạnh.
-        </p>
-      </div>
+      <p class="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
+        Một môi trường giáo dục tốt không chỉ cần tri thức mà còn phải an toàn. Từ phòng ngừa nguy cơ đến trang bị kỹ năng ứng phó, sự phối hợp với lực lượng công an giúp những kiến thức vốn tưởng như xa với học sinh trở nên gần gũi hơn thông qua những hoạt động trực tiếp tại trường.
+      </p>
+      <p class="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
+        Công tác kiểm tra, test ma túy theo kế hoạch đối với đội ngũ giáo viên là một hoạt động thể hiện sự quan tâm đến việc phòng ngừa nguy cơ, góp phần xây dựng môi trường giáo dục an toàn, lành mạnh.
+      </p>
 
-      <!-- [ẢNH 2 THEO FILE WORD = image3.jpeg] -->
-      <div class="photo-card bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-blue-200">
-        <div class="relative group">
-          <img src="images/image3.jpeg" alt="Lực lượng Công an xã phối hợp thực hiện công tác kiểm tra, test ma túy đối với giáo viên tại nhà trường" class="w-full h-auto object-cover max-h-[550px] transition-transform duration-500 group-hover:scale-[1.02]">
-          <div class="absolute top-4 left-4 bg-blue-600/90 backdrop-blur-md text-white px-3.5 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-lg">
-            <i class="fa-solid fa-shield-virus"></i> [ẢNH 2] CÔNG AN XÃ TEST MA TÚY GIÁO VIÊN
-          </div>
-        </div>
-        <div class="p-5 bg-gradient-to-r from-blue-50 via-white to-sky-50 border-t border-blue-100">
-          <p class="font-bold text-slate-800 text-sm sm:text-base leading-snug">
-            Chú thích: Lực lượng Công an xã phối hợp thực hiện công tác kiểm tra, test ma túy đối với giáo viên tại nhà trường (Hoạt động theo kế hoạch Tháng an toàn phòng chống ma túy; kết quả: 100% cán bộ giáo viên gương mẫu, không ma túy).
-          </p>
-        </div>
-      </div>
+      <!-- [ẢNH 2 TRONG FILE WORD = image3.jpeg] -->
+      <figure class="magazine-photo bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+        <img src="images/image3.jpeg" alt="Lực lượng Công an xã thực hiện test ma túy giáo viên" class="w-full h-auto object-cover max-h-[500px]">
+        <figcaption class="p-4 bg-slate-50 border-t border-slate-100 text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+          <strong class="text-blue-700 font-bold">[ẢNH 2]</strong> Lực lượng Công an xã phối hợp thực hiện công tác kiểm tra, test ma túy đối với giáo viên tại nhà trường (Kế hoạch Tháng an toàn phòng chống ma túy; kết quả: 100% cán bộ giáo viên không ma túy).
+        </figcaption>
+      </figure>
 
-      <div class="text-slate-700 text-base sm:text-lg leading-relaxed space-y-4 text-justify font-sans pt-2">
-        <p>
-          Cũng với mục tiêu bảo đảm an toàn, cán bộ công an hướng dẫn nhà trường và học sinh về công tác phòng cháy, cứu nạn, cứu hộ. Những kiến thức về cách phòng ngừa cháy, cách xử lý khi có tình huống nguy hiểm hay kỹ năng thoát nạn sẽ chỉ thực sự có ý nghĩa khi được truyền đạt bằng những tình huống cụ thể, phù hợp với lứa tuổi.
-        </p>
-      </div>
+      <p class="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
+        Cũng với mục tiêu bảo đảm an toàn, cán bộ công an hướng dẫn nhà trường và học sinh về công tác phòng cháy, cứu nạn, cứu hộ. Những kiến thức về cách phòng ngừa cháy, cách xử lý khi có tình huống nguy hiểm hay kỹ năng thoát nạn sẽ chỉ thực sự có ý nghĩa khi được truyền đạt bằng những tình huống cụ thể, phù hợp với lứa tuổi.
+      </p>
 
-      <!-- [ẢNH 3 THEO FILE WORD = image4.jpeg] -->
-      <div class="photo-card bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-red-200">
-        <div class="relative group">
-          <img src="images/image4.jpeg" alt="Cán bộ Công an hướng dẫn nhà trường và học sinh kiến thức, kỹ năng phòng cháy, cứu nạn, cứu hộ" class="w-full h-auto object-cover max-h-[550px] transition-transform duration-500 group-hover:scale-[1.02]">
-          <div class="absolute top-4 left-4 bg-red-600/90 backdrop-blur-md text-white px-3.5 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-lg">
-            <i class="fa-solid fa-fire-extinguisher"></i> [ẢNH 3] CÔNG AN HƯỚNG DẪN PCCC & CỨU NẠN
-          </div>
-        </div>
-        <div class="p-5 bg-gradient-to-r from-red-50 via-white to-orange-50 border-t border-red-100">
-          <p class="font-bold text-slate-800 text-sm sm:text-base leading-snug">
-            Chú thích: Cán bộ Công an hướng dẫn nhà trường và học sinh kiến thức, kỹ năng phòng cháy, cứu nạn, cứu hộ.
-          </p>
-        </div>
-      </div>
+      <!-- [ẢNH 3 TRONG FILE WORD = image4.jpeg] -->
+      <figure class="magazine-photo bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+        <img src="images/image4.jpeg" alt="Công an hướng dẫn công tác phòng cháy, cứu nạn" class="w-full h-auto object-cover max-h-[500px]">
+        <figcaption class="p-4 bg-slate-50 border-t border-slate-100 text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+          <strong class="text-red-700 font-bold">[ẢNH 3]</strong> Cán bộ Công an hướng dẫn nhà trường và học sinh kiến thức, kỹ năng phòng cháy, cứu nạn, cứu hộ.
+        </figcaption>
+      </figure>
 
-      <p class="text-slate-700 text-base sm:text-lg leading-relaxed text-justify font-sans pt-1">
+      <p class="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
         Từ phòng cháy đến phòng ngừa các nguy cơ khác, điều quan trọng không chỉ là “nói cho học sinh biết”, mà là giúp các em hình thành kỹ năng và ý thức tự bảo vệ mình. Đó là một cách giáo dục thiết thực, trong đó những người làm công tác chuyên môn bên ngoài nhà trường trở thành những người đồng hành cùng thầy cô trong việc bảo vệ học sinh.
       </p>
     </article>
 
-    <!-- PHẦN 4: AN TOÀN GIAO THÔNG (ẢNH 4 TRONG WORD = image5.jpeg) -->
-    <article class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-100 space-y-6">
-      <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
-        <span class="w-11 h-11 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center font-black text-lg">04</span>
-        <div>
-          <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">Cổng Trường Bình Yên</span>
-          <h3 class="text-xl sm:text-2xl font-black text-slate-900">Từ Cổng Trường Đến Những Con Đường An Toàn</h3>
-        </div>
+    <!-- PHẦN 4 & [ẢNH 4] -->
+    <article class="space-y-6">
+      <div class="flex items-baseline gap-3 border-b border-slate-200 pb-3">
+        <span class="text-2xl font-black text-amber-700 font-heading">04</span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 font-heading">
+          Từ Cổng Trường Đến Những Con Đường An Toàn
+        </h2>
       </div>
 
-      <div class="text-slate-700 text-base sm:text-lg leading-relaxed space-y-4 text-justify font-sans">
-        <p>
-          Với học sinh, hành trình đến trường bắt đầu từ ngoài cánh cổng. Bởi vậy, giáo dục an toàn giao thông cũng là một phần không thể tách rời của việc chăm lo cho các em. Những buổi tuyên truyền về an toàn giao thông đưa các quy định, kỹ năng và những điều cần lưu ý khi tham gia giao thông đến gần hơn với học sinh.
-        </p>
-      </div>
+      <p class="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
+        Với học sinh, hành trình đến trường bắt đầu từ ngoài cánh cổng. Bởi vậy, giáo dục an toàn giao thông cũng là một phần không thể tách rời của việc chăm lo cho các em. Những buổi tuyên truyền về an toàn giao thông đưa các quy định, kỹ năng và những điều cần lưu ý khi tham gia giao thông đến gần hơn với học sinh.
+      </p>
 
-      <!-- [ẢNH 4 THEO FILE WORD = image5.jpeg] -->
-      <div class="photo-card bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-amber-200">
-        <div class="relative group">
-          <img src="images/image5.jpeg" alt="Cán bộ giao thông tuyên truyền, hướng dẫn học sinh những kiến thức cần thiết khi tham gia giao thông" class="w-full h-auto object-cover max-h-[580px] transition-transform duration-500 group-hover:scale-[1.02]">
-          <div class="absolute top-4 left-4 bg-amber-600/90 backdrop-blur-md text-white px-3.5 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-lg">
-            <i class="fa-solid fa-helmet-safety"></i> [ẢNH 4] CÁN BỘ GIAO THÔNG TUYÊN TRUYỀN AN TOÀN GIAO THÔNG
-          </div>
-        </div>
-        <div class="p-5 bg-gradient-to-r from-amber-50 via-white to-yellow-50 border-t border-amber-100">
-          <p class="font-bold text-slate-800 text-sm sm:text-base leading-snug">
-            Chú thích: Cán bộ giao thông tuyên truyền, hướng dẫn học sinh những kiến thức cần thiết khi tham gia giao thông.
-          </p>
-        </div>
-      </div>
+      <!-- [ẢNH 4 TRONG FILE WORD = image5.jpeg] -->
+      <figure class="magazine-photo bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+        <img src="images/image5.jpeg" alt="Cán bộ giao thông tuyên truyền an toàn giao thông" class="w-full h-auto object-cover max-h-[520px]">
+        <figcaption class="p-4 bg-slate-50 border-t border-slate-100 text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+          <strong class="text-amber-700 font-bold">[ẢNH 4]</strong> Cán bộ giao thông tuyên truyền, hướng dẫn học sinh những kiến thức cần thiết khi tham gia giao thông.
+        </figcaption>
+      </figure>
 
-      <div class="text-slate-700 text-base sm:text-lg leading-relaxed space-y-4 text-justify font-sans pt-1">
-        <p>
-          Với trẻ nhỏ, những bài học ấy không chỉ nằm trên trang sách. Đó là cách đội mũ bảo hiểm đúng quy định, đi đúng phần đường, quan sát khi qua đường và biết tự bảo vệ mình trên hành trình đến trường. Khi cán bộ chuyên môn cùng nhà trường trực tiếp giáo dục học sinh, những kiến thức về an toàn trở nên gần gũi và dễ nhớ hơn.
-        </p>
-        <p>
-          Một lần tuyên truyền có thể chỉ diễn ra trong một khoảng thời gian ngắn. Nhưng nếu được nhắc lại thường xuyên, được gia đình đồng hành và được các em thực hành trong cuộc sống, những bài học ấy có thể trở thành thói quen.
-        </p>
-      </div>
+      <p class="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
+        Với trẻ nhỏ, những bài học ấy không chỉ nằm trên trang sách. Đó là cách đội mũ bảo hiểm đúng quy định, đi đúng phần đường, quan sát khi qua đường và biết tự bảo vệ mình trên hành trình đến trường. Khi cán bộ chuyên môn cùng nhà trường trực tiếp giáo dục học sinh, những kiến thức về an toàn trở nên gần gũi và dễ nhớ hơn. Một lần tuyên truyền có thể chỉ diễn ra trong một khoảng thời gian ngắn, nhưng khi được nhắc lại thường xuyên và gia đình cùng đồng hành, những bài học ấy sẽ trở thành nếp sống văn minh.
+      </p>
     </article>
 
-    <!-- PHẦN 5: CHÍNH QUYỀN ĐỒNG HÀNH (ẢNH 5 TRONG WORD = image6.jpg) -->
-    <article class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-100 space-y-6">
-      <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
-        <span class="w-11 h-11 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center font-black text-lg">05</span>
-        <div>
-          <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Chung Một Trách Nhiệm</span>
-          <h3 class="text-xl sm:text-2xl font-black text-slate-900">Khi Chính Quyền Và Nhà Trường Cùng Chung Một Trách Nhiệm</h3>
-        </div>
+    <!-- PHẦN 5 & [ẢNH 5] -->
+    <article class="space-y-6">
+      <div class="flex items-baseline gap-3 border-b border-slate-200 pb-3">
+        <span class="text-2xl font-black text-indigo-700 font-heading">05</span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 font-heading">
+          Khi Chính Quyền Và Nhà Trường Cùng Chung Một Trách Nhiệm
+        </h2>
       </div>
 
-      <div class="text-slate-700 text-base sm:text-lg leading-relaxed space-y-4 text-justify font-sans">
-        <p>
-          Nhà trường là nơi trực tiếp tổ chức dạy học, nhưng giáo dục học sinh luôn gắn với đời sống của địa phương. Sự quan tâm của chính quyền địa phương đối với nhà trường vì thế không chỉ mang ý nghĩa động viên tinh thần. Đó còn là sự hiện diện của cộng đồng trong một lĩnh vực quan trọng: chăm lo cho thế hệ trẻ.
-        </p>
-      </div>
+      <p class="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
+        Nhà trường là nơi trực tiếp tổ chức dạy học, nhưng giáo dục học sinh luôn gắn với đời sống của địa phương. Sự quan tâm của chính quyền địa phương đối với nhà trường vì thế không chỉ mang ý nghĩa động viên tinh thần. Đó còn là sự hiện diện của cộng đồng trong một lĩnh vực quan trọng: chăm lo cho thế hệ trẻ.
+      </p>
 
-      <!-- [ẢNH 5 THEO FILE WORD = image6.jpg] -->
-      <div class="photo-card bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-indigo-200">
-        <div class="relative group">
-          <img src="images/image6.jpg" alt="Chính quyền địa phương thăm, động viên thầy và trò Trường Tiểu học Tả Phìn" class="w-full h-auto object-cover max-h-[580px] transition-transform duration-500 group-hover:scale-[1.02]">
-          <div class="absolute top-4 left-4 bg-indigo-600/90 backdrop-blur-md text-white px-3.5 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-lg">
-            <i class="fa-solid fa-landmark"></i> [ẢNH 5] CHÍNH QUYỀN ĐỊA PHƯƠNG THĂM TRƯỜNG
-          </div>
-        </div>
-        <div class="p-5 bg-gradient-to-r from-indigo-50 via-white to-purple-50 border-t border-indigo-100">
-          <p class="font-bold text-slate-800 text-sm sm:text-base leading-snug">
-            Chú thích: Đồng chí Thào A Sinh, bí thư xã; đồng chí Vũ Xuân Quý, chủ tịch UBND xã Tả Phìn cùng các đồng chí lãnh đạo, chuyên viên phòng văn hóa xã hội thăm, kiểm tra các hoạt động giáo dục và động viên thầy trò Trường Tiểu học Tả Phìn.
-          </p>
-        </div>
-      </div>
+      <!-- [ẢNH 5 TRONG FILE WORD = image6.jpg] -->
+      <figure class="magazine-photo bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+        <img src="images/image6.jpg" alt="Chính quyền địa phương thăm trường" class="w-full h-auto object-cover max-h-[520px]">
+        <figcaption class="p-4 bg-slate-50 border-t border-slate-100 text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+          <strong class="text-indigo-700 font-bold">[ẢNH 5]</strong> Đồng chí Thào A Sinh (Bí thư xã), đồng chí Vũ Xuân Quý (Chủ tịch UBND xã Tả Phìn) cùng các đồng chí lãnh đạo, chuyên viên phòng văn hóa xã hội thăm, kiểm tra các hoạt động giáo dục và động viên thầy trò Trường Tiểu học Tả Phìn.
+        </figcaption>
+      </figure>
 
-      <div class="text-slate-700 text-base sm:text-lg leading-relaxed space-y-4 text-justify font-sans pt-1">
-        <p>
-          Khi chính quyền nắm được những thuận lợi, khó khăn của nhà trường; khi nhà trường chủ động chia sẻ những vấn đề liên quan đến học sinh; khi các lực lượng cùng tìm cách tháo gỡ, khoảng cách giữa nhà trường và cộng đồng được rút ngắn.
-        </p>
-        <p>
-          Đó chính là một biểu hiện cụ thể của phương châm gần dân, lắng nghe dân và giải quyết những vấn đề thiết thực của người dân. Trong trường học, “dân” ở đây không chỉ là cha mẹ học sinh. Đó còn là cộng đồng nơi nhà trường đang đứng chân, là những gia đình gửi gắm con em mình cho thầy cô mỗi ngày.
-        </p>
-      </div>
+      <p class="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
+        Khi chính quyền nắm được những thuận lợi, khó khăn của nhà trường; khi nhà trường chủ động chia sẻ những vấn đề liên quan đến học sinh; khi các lực lượng cùng tìm cách tháo gỡ, khoảng cách giữa nhà trường và cộng đồng được rút ngắn. Đó chính là một biểu hiện cụ thể của phương châm gần dân, lắng nghe dân và giải quyết những vấn đề thiết thực của người dân.
+      </p>
     </article>
 
-    <!-- PHẦN 6: NHỮNG BÀN TAY TỪ GIA ĐÌNH (ẢNH 6 & ẢNH 7 TRONG WORD = image7.jpg & image8.jpg) -->
-    <article class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-100 space-y-6">
-      <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
-        <span class="w-11 h-11 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center font-black text-lg">06</span>
-        <div>
-          <span class="text-xs font-bold text-rose-600 uppercase tracking-widest">Đồng Hành Thường Xuyên</span>
-          <h3 class="text-xl sm:text-2xl font-black text-slate-900">Những Bàn Tay Từ Gia Đình</h3>
-        </div>
+    <!-- PHẦN 6 & [ẢNH 6, ẢNH 7] -->
+    <article class="space-y-6">
+      <div class="flex items-baseline gap-3 border-b border-slate-200 pb-3">
+        <span class="text-2xl font-black text-rose-700 font-heading">06</span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 font-heading">
+          Những Bàn Tay Từ Gia Đình
+        </h2>
       </div>
 
-      <div class="text-slate-700 text-base sm:text-lg leading-relaxed space-y-4 text-justify font-sans">
-        <p>
-          Nếu các lực lượng bên ngoài là những cánh tay nối dài hỗ trợ nhà trường, thì cha mẹ học sinh chính là những người đồng hành gần gũi nhất với mỗi đứa trẻ. Một cuộc họp phụ huynh không chỉ là dịp nhà trường thông báo tình hình học tập. Đó còn là cơ hội để giáo viên và cha mẹ cùng trao đổi về việc học, việc rèn luyện và những vấn đề của học sinh.
-        </p>
-      </div>
+      <p class="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
+        Nếu các lực lượng bên ngoài là những cánh tay nối dài hỗ trợ nhà trường, thì cha mẹ học sinh chính là những người đồng hành gần gũi nhất với mỗi đứa trẻ. Một cuộc họp phụ huynh không chỉ là dịp nhà trường thông báo tình hình học tập. Đó còn là cơ hội để giáo viên và cha mẹ cùng trao đổi về việc học, việc rèn luyện và những vấn đề của học sinh.
+      </p>
 
-      <!-- [ẢNH 6 THEO FILE WORD = image7.jpg] -->
-      <div class="photo-card bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-rose-200">
-        <div class="relative group">
-          <img src="images/image7.jpg" alt="Cha mẹ học sinh tham gia họp, trao đổi cùng nhà trường về việc học tập và rèn luyện của con em" class="w-full h-auto object-cover max-h-[550px] transition-transform duration-500 group-hover:scale-[1.02]">
-          <div class="absolute top-4 left-4 bg-rose-600/90 backdrop-blur-md text-white px-3.5 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-lg">
-            <i class="fa-solid fa-users"></i> [ẢNH 6] PHỤ HUYNH HỌP PHỤ HUYNH
-          </div>
-        </div>
-        <div class="p-5 bg-gradient-to-r from-rose-50 to-pink-50 border-t border-rose-100">
-          <p class="font-bold text-slate-800 text-sm sm:text-base leading-snug">
-            Chú thích: Cha mẹ học sinh tham gia họp, trao đổi cùng nhà trường về việc học tập và rèn luyện của con em.
-          </p>
-        </div>
-      </div>
+      <!-- [ẢNH 6 TRONG FILE WORD = image7.jpg] -->
+      <figure class="magazine-photo bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+        <img src="images/image7.jpg" alt="Phụ huynh họp phụ huynh" class="w-full h-auto object-cover max-h-[500px]">
+        <figcaption class="p-4 bg-slate-50 border-t border-slate-100 text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+          <strong class="text-rose-700 font-bold">[ẢNH 6]</strong> Cha mẹ học sinh tham gia họp, trao đổi cùng nhà trường về việc học tập và rèn luyện của con em.
+        </figcaption>
+      </figure>
 
-      <div class="text-slate-700 text-base sm:text-lg leading-relaxed space-y-4 text-justify font-sans pt-1">
-        <p>
-          Sự phối hợp ấy càng có ý nghĩa ở địa bàn vùng cao, nơi việc duy trì việc học của trẻ cần sự đồng hành thường xuyên từ gia đình và nhà trường. Vận động học sinh đi học chuyên cần, duy trì sĩ số không thể chỉ thực hiện bằng lời nhắc nhở trong lớp. Thầy cô cần đến gần gia đình, hiểu hoàn cảnh của từng học sinh, lắng nghe những khó khăn của cha mẹ và cùng tìm cách tháo gỡ.
-        </p>
-        <p>
-          Khi phụ huynh hiểu rằng việc học của con không chỉ là trách nhiệm của nhà trường, sự đồng hành sẽ trở thành một phần quan trọng trong quá trình giáo dục. Và sự đồng hành ấy đôi khi được thể hiện bằng những việc rất cụ thể: đó là những ngày cha mẹ học sinh đến trường cùng tham gia lao động, góp sức xây dựng môi trường học tập cho con em mình.
-        </p>
-      </div>
+      <p class="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
+        Sự phối hợp ấy càng có ý nghĩa ở địa bàn vùng cao, nơi việc duy trì việc học của trẻ cần sự đồng hành thường xuyên từ gia đình và nhà trường. Vận động học sinh đi học chuyên cần, duy trì sĩ số không thể chỉ thực hiện bằng lời nhắc nhở trong lớp. Thầy cô cần đến gần gia đình, hiểu hoàn cảnh của từng học sinh, lắng nghe những khó khăn của cha mẹ và cùng tìm cách tháo gỡ.
+      </p>
 
-      <!-- [ẢNH 7 THEO FILE WORD = image8.jpg] -->
-      <div class="photo-card bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-amber-200">
-        <div class="relative group">
-          <img src="images/image8.jpg" alt="Cha mẹ học sinh cùng tham gia lao động, góp sức xây dựng môi trường học tập của nhà trường" class="w-full h-auto object-cover max-h-[550px] transition-transform duration-500 group-hover:scale-[1.02]">
-          <div class="absolute top-4 left-4 bg-amber-600/90 backdrop-blur-md text-white px-3.5 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-lg">
-            <i class="fa-solid fa-person-digging"></i> [ẢNH 7] PHỤ HUYNH LAO ĐỘNG TẠI TRƯỜNG
-          </div>
-        </div>
-        <div class="p-5 bg-gradient-to-r from-amber-50 to-orange-50 border-t border-amber-100">
-          <p class="font-bold text-slate-800 text-sm sm:text-base leading-snug">
-            Chú thích: Cha mẹ học sinh cùng tham gia lao động, góp sức xây dựng môi trường học tập của nhà trường.
-          </p>
-        </div>
-      </div>
+      <!-- [ẢNH 7 TRONG FILE WORD = image8.jpg] -->
+      <figure class="magazine-photo bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+        <img src="images/image8.jpg" alt="Phụ huynh lao động tại trường" class="w-full h-auto object-cover max-h-[500px]">
+        <figcaption class="p-4 bg-slate-50 border-t border-slate-100 text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+          <strong class="text-amber-700 font-bold">[ẢNH 7]</strong> Cha mẹ học sinh cùng tham gia lao động, góp sức xây dựng môi trường học tập của nhà trường.
+        </figcaption>
+      </figure>
 
-      <div class="text-slate-700 text-base sm:text-lg leading-relaxed space-y-4 text-justify font-sans pt-1">
-        <p>
-          Những công việc ấy có thể không xuất hiện trong bảng thành tích. Nhưng với một ngôi trường, mỗi ngày công của phụ huynh là một biểu hiện cụ thể của sự đồng hành. Khi cha mẹ trực tiếp góp sức cho trường lớp, học sinh cũng nhìn thấy một bài học khác – bài học về trách nhiệm với cộng đồng, về sự sẻ chia và về việc mỗi người đều có thể đóng góp một phần nhỏ bé để nơi mình sống trở nên tốt đẹp hơn.
-        </p>
-      </div>
+      <p class="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
+        Những công việc ấy có thể không xuất hiện trong bảng thành tích. Nhưng với một ngôi trường, mỗi ngày công của phụ huynh là một biểu hiện cụ thể của sự đồng hành. Khi cha mẹ trực tiếp góp sức cho trường lớp, học sinh cũng nhìn thấy một bài học khác – bài học về trách nhiệm với cộng đồng, về sự sẻ chia và về việc mỗi người đều có thể đóng góp một phần nhỏ bé để nơi mình sống trở nên tốt đẹp hơn.
+      </p>
     </article>
 
-    <!-- PHẦN 7: TỪ SỰ KẾT NỐI ĐẾN NHỮNG THAY ĐỔI BỀN VỮNG -->
-    <article class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-100 space-y-4 text-justify font-sans">
-      <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
-        <span class="w-11 h-11 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center font-black text-lg">07</span>
-        <div>
-          <span class="text-xs font-bold text-purple-600 uppercase tracking-widest">Thay Đổi Bền Vững</span>
-          <h3 class="text-xl sm:text-2xl font-black text-slate-900">Một Ngôi Trường Được Dựng Xây Từ Sự Đồng Lòng</h3>
-        </div>
+    <!-- PHẦN 7 & KẾT LUẬN -->
+    <article class="space-y-6">
+      <div class="flex items-baseline gap-3 border-b border-slate-200 pb-3">
+        <span class="text-2xl font-black text-slate-800 font-heading">07</span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 font-heading">
+          Từ Sự Kết Nối Đến Những Thay Đổi Bền Vững
+        </h2>
       </div>
 
-      <p class="text-slate-700 text-base sm:text-lg leading-relaxed">
+      <p class="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
         “Dân vận khéo” trong trường học không nhất thiết phải bắt đầu bằng những chương trình lớn. Nó có thể bắt đầu từ một giáo viên chịu khó tìm đến gia đình học sinh; từ một cuộc trao đổi thẳng thắn với phụ huynh; từ cán bộ y tế đến trường chăm sóc sức khỏe cho các em; từ lực lượng công an hướng dẫn kỹ năng phòng cháy, cứu nạn; từ cán bộ giao thông giúp học sinh hiểu cách bảo vệ mình trên đường; từ chính quyền dành thời gian đến thăm, nắm tình hình nhà trường; hay từ những phụ huynh cùng bỏ công sức lao động vì môi trường học tập của con.
       </p>
-      <p class="text-slate-700 text-base sm:text-lg leading-relaxed">
-        Điểm chung của những việc làm ấy là sự gần gũi và thiết thực. Nhà trường không đứng ngoài cộng đồng. Cộng đồng cũng không đứng ngoài giáo dục. Mỗi lực lượng có một vai trò khác nhau, nhưng khi cùng hướng về học sinh, những phần việc riêng lẻ sẽ tạo thành một mạng lưới đồng hành. Đó cũng là nền tảng để vận động học sinh đến trường, duy trì sĩ số, chăm sóc sức khỏe, bảo đảm an toàn, nâng cao ý thức và tạo điều kiện để các em học tập tốt hơn.
+      <p class="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
+        Điểm chung của những việc làm ấy là sự gần gũi và thiết thực. Nhà trường không đứng ngoài cộng đồng. Cộng đồng cũng không đứng ngoài giáo dục. Mỗi lực lượng có một vai trò khác nhau, nhưng khi cùng hướng về học sinh, những phần việc riêng lẻ sẽ tạo thành một mạng lưới đồng hành.
       </p>
     </article>
 
-    <!-- BOX NHẤN: NHIỀU CÁNH TAY – MỘT MỤC TIÊU -->
-    <section class="bg-gradient-to-tr from-slate-900 via-orange-950 to-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
-      <div class="text-center max-w-2xl mx-auto space-y-3 mb-8">
-        <span class="bg-orange-500/30 text-amber-300 font-bold text-xs uppercase px-3 py-1 rounded-full border border-orange-400/40">
-          BOX NHẤN
+    <!-- BOX NHẤN: THIẾT KẾ HIỆN ĐẠI & TINH TẾ -->
+    <section class="bg-slate-900 text-white rounded-3xl p-8 sm:p-10 shadow-2xl relative overflow-hidden">
+      <div class="max-w-xl mx-auto text-center mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-950/60 border border-amber-500/30 px-3.5 py-1 rounded-full inline-block mb-3">
+          Thông Điệp Cốt Lõi
         </span>
-        <h3 class="text-2xl sm:text-3xl font-black">NHIỀU CÁNH TAY – MỘT MỤC TIÊU</h3>
-        <p class="text-slate-300 text-sm">Sức mạnh của sự đồng hành vì thế hệ măng non Tả Phìn.</p>
+        <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight font-heading">NHIỀU CÁNH TAY – MỘT MỤC TIÊU</h3>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-left">
-        <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
-          <div class="text-2xl mb-2">🩺</div>
-          <h4 class="font-bold text-amber-300 text-base">Y tế</h4>
-          <p class="text-xs text-slate-300 mt-1">Chăm sóc sức khỏe học sinh.</p>
+        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+          <div class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1">Y tế</div>
+          <p class="text-xs sm:text-sm text-slate-300">Chăm sóc sức khỏe học sinh chu đáo.</p>
         </div>
-        <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
-          <div class="text-2xl mb-2">👮</div>
-          <h4 class="font-bold text-blue-300 text-base">Công an</h4>
-          <p class="text-xs text-slate-300 mt-1">Góp phần xây dựng môi trường giáo dục an toàn.</p>
+        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+          <div class="text-xs font-bold text-blue-400 uppercase tracking-wider mb-1">Công an</div>
+          <p class="text-xs sm:text-sm text-slate-300">Xây dựng môi trường giáo dục an toàn, lành mạnh.</p>
         </div>
-        <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
-          <div class="text-2xl mb-2">🚦</div>
-          <h4 class="font-bold text-emerald-300 text-base">Giao thông</h4>
-          <p class="text-xs text-slate-300 mt-1">Trang bị kiến thức, kỹ năng tham gia giao thông.</p>
+        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+          <div class="text-xs font-bold text-amber-400 uppercase tracking-wider mb-1">Giao thông</div>
+          <p class="text-xs sm:text-sm text-slate-300">Trang bị kiến thức, kỹ năng tham gia giao thông.</p>
         </div>
-        <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
-          <div class="text-2xl mb-2">🏛️</div>
-          <h4 class="font-bold text-purple-300 text-base">Chính quyền</h4>
-          <p class="text-xs text-slate-300 mt-1">Đồng hành, nắm tình hình và quan tâm đến nhà trường.</p>
+        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+          <div class="text-xs font-bold text-indigo-400 uppercase tracking-wider mb-1">Chính quyền</div>
+          <p class="text-xs sm:text-sm text-slate-300">Đồng hành, nắm tình hình và quan tâm sâu sát.</p>
         </div>
-        <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
-          <div class="text-2xl mb-2">👨‍👩‍👧‍👦</div>
-          <h4 class="font-bold text-rose-300 text-base">Cha mẹ học sinh</h4>
-          <p class="text-xs text-slate-300 mt-1">Phối hợp giáo dục, chăm lo và góp sức xây dựng trường lớp.</p>
+        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+          <div class="text-xs font-bold text-rose-400 uppercase tracking-wider mb-1">Cha mẹ học sinh</div>
+          <p class="text-xs sm:text-sm text-slate-300">Phối hợp giáo dục, góp sức dựng xây trường lớp.</p>
         </div>
-        <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
-          <div class="text-2xl mb-2">🏫</div>
-          <h4 class="font-bold text-sky-300 text-base">Nhà trường</h4>
-          <p class="text-xs text-slate-300 mt-1">Kết nối, lắng nghe, vận động và tổ chức thực hiện.</p>
+        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+          <div class="text-xs font-bold text-amber-300 uppercase tracking-wider mb-1">Nhà trường</div>
+          <p class="text-xs sm:text-sm text-slate-300">Kết nối, lắng nghe, vận động và tổ chức thực hiện.</p>
         </div>
       </div>
     </section>
 
-    <!-- PHẦN KẾT LUẬN -->
-    <article class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-100 space-y-4 text-justify font-sans">
-      <p class="text-slate-700 text-base sm:text-lg leading-relaxed">
+    <!-- ĐOẠN KẾT BÀI BÁO -->
+    <div class="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm space-y-3 text-justify font-serif text-slate-800 text-base sm:text-lg leading-relaxed">
+      <p>
         Ở vùng cao, mỗi học sinh đến trường là niềm vui của gia đình, của thầy cô và cũng là niềm vui của cộng đồng. Bởi vậy, nâng cao chất lượng giáo dục không chỉ nằm ở những bài học trên lớp. Đó còn là quá trình xây dựng một môi trường trong đó học sinh được quan tâm, được bảo vệ, được lắng nghe và có điều kiện phát triển.
       </p>
-      <p class="text-slate-700 text-base sm:text-lg leading-relaxed">
-        Từ những việc làm cụ thể, Trường Tiểu học Tả Phìn đang cho thấy một cách làm gần gũi của công tác dân vận: không xa dân, không nói những điều xa rời cuộc sống, mà bắt đầu từ những nhu cầu thực tế của học sinh và gia đình.
-      </p>
-      <div class="bg-rose-50 border-l-4 border-rose-500 p-5 rounded-r-2xl my-4 text-slate-800 text-base leading-relaxed font-semibold">
-        Một cán bộ y tế góp một phần.<br>
-        Một cán bộ công an góp một phần.<br>
-        Một cán bộ giao thông góp một phần.<br>
-        Chính quyền góp một phần.<br>
-        Thầy cô góp một phần.<br>
-        Cha mẹ học sinh góp một phần.<br>
-        Những phần việc ấy gặp nhau ở một điểm chung: <strong>vì học sinh</strong>.
+      <div class="border-l-2 border-red-700 pl-4 my-3 text-slate-900 font-semibold italic">
+        Một cán bộ y tế góp một phần. Một cán bộ công an góp một phần. Một cán bộ giao thông góp một phần. Chính quyền góp một phần. Thầy cô góp một phần. Cha mẹ học sinh góp một phần. Những phần việc ấy gặp nhau ở một điểm chung: <strong>vì học sinh</strong>.
       </div>
-      <p class="text-slate-700 text-base sm:text-lg leading-relaxed">
+      <p>
         Và khi nhà trường biết kết nối những “cánh tay” ấy, cánh cổng trường không còn là ranh giới giữa nhà trường với cộng đồng. Một trường học có thể có những bức tường bao quanh, nhưng để tạo nên một môi trường giáo dục tốt đẹp, cần rất nhiều cánh tay cùng chung sức. Đó là sức mạnh của sự đồng hành. Đó cũng là giá trị thiết thực của “Dân vận khéo” trong giáo dục vùng cao.
       </p>
-    </article>
+    </div>
 
-
-    <!-- THÔNG TIN BÀI VIẾT & XUẤT BẢN CHÍNH THỨC -->
-    <section class="bg-gradient-to-r from-orange-50 via-amber-50 to-red-50 rounded-3xl p-6 sm:p-8 border-2 border-orange-200 shadow-lg">
-      <div class="flex items-center gap-2.5 mb-5 border-b border-orange-200 pb-3">
-        <span class="text-2xl">📋</span>
-        <h4 class="text-lg sm:text-xl font-black text-slate-900 uppercase tracking-wide">
+    <!-- MỤC THÔNG TIN XUẤT BẢN CHUẨN MỰC BÁO CHÍ -->
+    <section class="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200 shadow-sm">
+      <div class="flex items-center gap-2 mb-4 pb-3 border-b border-slate-100">
+        <span class="text-base text-red-700"><i class="fa-solid fa-circle-info"></i></span>
+        <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wider font-heading">
           Thông Tin Xuất Bản & Lưu Chiểu
         </h4>
       </div>
       
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm sm:text-base">
-        <div class="flex items-center gap-3 bg-white/80 backdrop-blur-sm p-3.5 rounded-2xl border border-orange-100 shadow-sm">
-          <span class="w-8 h-8 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center font-bold text-sm">📝</span>
-          <div>
-            <span class="text-xs text-slate-500 font-bold uppercase block">Thể loại</span>
-            <span class="font-extrabold text-slate-800">Bài viết</span>
-          </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+        <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="text-slate-400 font-bold text-xs uppercase w-20">Thể loại</span>
+          <span class="font-bold text-slate-800">Bài viết</span>
         </div>
-
-        <div class="flex items-center gap-3 bg-white/80 backdrop-blur-sm p-3.5 rounded-2xl border border-orange-100 shadow-sm">
-          <span class="w-8 h-8 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm">📰</span>
-          <div>
-            <span class="text-xs text-slate-500 font-bold uppercase block">Hình thức</span>
-            <span class="font-extrabold text-slate-800">Báo điện tử</span>
-          </div>
+        <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="text-slate-400 font-bold text-xs uppercase w-20">Hình thức</span>
+          <span class="font-bold text-slate-800">Báo điện tử</span>
         </div>
-
-        <div class="flex items-center gap-3 bg-white/80 backdrop-blur-sm p-3.5 rounded-2xl border border-orange-100 shadow-sm">
-          <span class="w-8 h-8 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center font-bold text-sm">👥</span>
-          <div>
-            <span class="text-xs text-slate-500 font-bold uppercase block">Nhân vật</span>
-            <span class="font-extrabold text-slate-800">Tập thể Trường Tiểu học Tả Phìn</span>
-          </div>
+        <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="text-slate-400 font-bold text-xs uppercase w-20">Nhân vật</span>
+          <span class="font-bold text-slate-800">Tập thể Trường Tiểu học Tả Phìn</span>
         </div>
-
-        <div class="flex items-center gap-3 bg-white/80 backdrop-blur-sm p-3.5 rounded-2xl border border-orange-100 shadow-sm">
-          <span class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-sm">🏫</span>
-          <div>
-            <span class="text-xs text-slate-500 font-bold uppercase block">Đơn vị</span>
-            <span class="font-extrabold text-slate-800">Trường Tiểu học Tả Phìn</span>
-          </div>
+        <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="text-slate-400 font-bold text-xs uppercase w-20">Đơn vị</span>
+          <span class="font-bold text-slate-800">Trường Tiểu học Tả Phìn</span>
         </div>
-
-        <div class="flex items-center gap-3 bg-white/80 backdrop-blur-sm p-3.5 rounded-2xl border border-orange-100 shadow-sm">
-          <span class="w-8 h-8 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-sm"><i class="fa-brands fa-facebook-f"></i></span>
-          <div>
-            <span class="text-xs text-slate-500 font-bold uppercase block">Nơi đăng</span>
-            <span class="font-extrabold text-slate-800">Facebook Trường Tiểu học Tả Phìn</span>
-          </div>
+        <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="text-slate-400 font-bold text-xs uppercase w-20">Nơi đăng</span>
+          <span class="font-bold text-slate-800">Facebook Trường Tiểu học Tả Phìn</span>
         </div>
-
-        <div class="flex items-center gap-3 bg-white/80 backdrop-blur-sm p-3.5 rounded-2xl border border-orange-100 shadow-sm">
-          <span class="w-8 h-8 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold text-sm"><i class="fa-regular fa-calendar-check"></i></span>
-          <div>
-            <span class="text-xs text-slate-500 font-bold uppercase block">Ngày đăng</span>
-            <span class="font-extrabold text-slate-800">16/9/2026</span>
-          </div>
+        <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="text-slate-400 font-bold text-xs uppercase w-20">Ngày đăng</span>
+          <span class="font-bold text-slate-800">16/9/2026</span>
         </div>
       </div>
     </section>
 
-    <!-- GÓC ĐỐ VUI CHO HỌC SINH -->
-    <section class="bg-gradient-to-br from-red-500 to-amber-600 text-white rounded-3xl p-6 sm:p-10 shadow-xl relative text-center">
-      <h3 class="text-2xl sm:text-3xl font-black mb-2">Góc Thử Thách Trí Nhớ Của Bé 🎯</h3>
-      <p class="text-red-100 text-sm mb-6">Em hãy chọn câu trả lời đúng nhất nhé!</p>
-
-      <div class="bg-white text-slate-800 rounded-2xl p-6 text-left max-w-xl mx-auto shadow-2xl">
-        <h4 class="font-extrabold text-base sm:text-lg mb-4 text-slate-900">
-          Có bao nhiêu bạn học sinh Trường Tiểu học Tả Phìn đã được cán bộ y tế khám sức khỏe sàng lọc ban đầu?
-        </h4>
-        <div class="space-y-2.5">
-          <button onclick="checkQuiz(this, true)" class="w-full text-left p-3 rounded-xl border-2 border-slate-200 hover:border-orange-400 hover:bg-orange-50 font-bold text-sm transition-all">
-            A. 452 / 452 em học sinh
-          </button>
-          <button onclick="checkQuiz(this, false)" class="w-full text-left p-3 rounded-xl border-2 border-slate-200 hover:border-orange-400 hover:bg-orange-50 font-bold text-sm transition-all">
-            B. 250 em học sinh
-          </button>
-          <button onclick="checkQuiz(this, false)" class="w-full text-left p-3 rounded-xl border-2 border-slate-200 hover:border-orange-400 hover:bg-orange-50 font-bold text-sm transition-all">
-            C. 300 em học sinh
-          </button>
-        </div>
-        <div id="quiz-msg" class="mt-4 p-3 rounded-xl hidden text-sm font-bold"></div>
-      </div>
-    </section>
-
-    <!-- NÚT THẢ TIM & CHIA SẺ -->
-    <section class="bg-amber-50 border-2 border-dashed border-amber-300 rounded-3xl p-6 sm:p-8 text-center">
-      <span class="text-4xl mb-2 inline-block">💖</span>
-      <h3 class="text-xl sm:text-2xl font-black text-slate-900 mb-2">Thả Tim Cổ Vũ Tinh Thần Dân Vận Khéo Tả Phìn!</h3>
-      <p class="text-slate-600 text-sm max-w-md mx-auto mb-5">Một nút chạm gửi gắm niềm tin yêu đến các thầy cô giáo và các bạn học sinh vùng cao!</p>
-      
-      <div class="flex items-center justify-center gap-4">
-        <button onclick="likeArticle()" class="bg-red-500 hover:bg-red-600 text-white font-bold px-6 py-3 rounded-2xl shadow-lg flex items-center gap-2 text-base active:scale-95 transition-all">
-          <i class="fa-solid fa-heart animate-ping"></i>
-          <span>Thả Tim</span>
-          <span id="like-count" class="bg-red-700 text-xs px-2.5 py-0.5 rounded-full ml-1">256</span>
-        </button>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Đã sao chép liên kết phóng sự!');" class="bg-white hover:bg-slate-100 text-slate-700 font-bold px-5 py-3 rounded-2xl shadow border border-slate-200 flex items-center gap-2 text-base active:scale-95 transition-all">
-          <i class="fa-solid fa-share-nodes text-orange-500"></i>
-          <span>Chia Sẻ</span>
-        </button>
-      </div>
-    </section>
+    <!-- TƯƠNG TÁC THẢ TIM VÀ CHIA SẺ -->
+    <div class="flex items-center justify-center gap-4 pt-4">
+      <button onclick="likeArticle()" class="bg-red-700 hover:bg-red-800 text-white font-bold px-7 py-3 rounded-xl shadow-lg flex items-center gap-2.5 text-sm active:scale-95 transition-all">
+        <i class="fa-solid fa-heart"></i>
+        <span>Yêu Thích</span>
+        <span id="like-count" class="bg-red-900/60 text-xs px-2.5 py-0.5 rounded-full ml-1 font-semibold">256</span>
+      </button>
+      <button onclick="navigator.clipboard.writeText(window.location.href); alert('Đã sao chép liên kết bài báo!');" class="bg-white hover:bg-slate-50 text-slate-700 font-bold px-6 py-3 rounded-xl shadow-sm border border-slate-300 flex items-center gap-2 text-sm active:scale-95 transition-all">
+        <i class="fa-solid fa-share-nodes text-slate-500"></i>
+        <span>Chia Sẻ</span>
+      </button>
+    </div>
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-slate-900 text-slate-300 py-12 px-4 mt-16 border-t-4 border-orange-500">
-    <div class="max-w-4xl mx-auto text-center space-y-4">
-      <div class="flex items-center justify-center gap-2 text-2xl font-black text-white">
-        <span>🤝</span> Trường Tiểu Học Tả Phìn
-      </div>
-      <p class="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto leading-relaxed">
-        Chuyên san tuyên truyền phong trào "Dân vận khéo" - Chung tay chăm lo cho sự nghiệp giáo dục vùng cao xã Tả Phìn, tỉnh Lào Cai.
-      </p>
-      <div class="text-[11px] text-slate-400 pt-3">
-        &copy; 2026 Bản quyền nội dung & hình ảnh thuộc Trường Tiểu Học Tả Phìn.
-      </div>
+  <!-- FOOTER TRANG NHÃ -->
+  <footer class="bg-slate-950 text-slate-400 py-10 px-4 mt-16 border-t border-slate-800 text-center text-xs space-y-2">
+    <div class="font-extrabold text-slate-200 text-sm tracking-wide uppercase">
+      Trường Tiểu Học Tả Phìn
+    </div>
+    <p class="text-slate-500 max-w-md mx-auto">
+      Chuyên san tuyên truyền phong trào "Dân vận khéo" - Chung tay chăm lo cho sự nghiệp giáo dục vùng cao xã Tả Phìn, tỉnh Lào Cai.
+    </p>
+    <div class="text-slate-600 pt-3">
+      &copy; 2026 Bản quyền nội dung & hình ảnh thuộc Trường Tiểu Học Tả Phìn.
     </div>
   </footer>
 
-  <!-- SCRIPT TƯƠNG TÁC -->
+  <!-- SCRIPT -->
   <script>
-    // 1. Tiến độ đọc
+    // Thanh tiến độ đọc
     window.addEventListener('scroll', () => {
       const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -730,40 +554,14 @@
       document.getElementById('reading-progress').style.width = scrolled + '%';
     });
 
-    // 2. Pháo hoa confetti
+    // Confetti
     function triggerConfetti() {
       if (typeof confetti === 'function') {
-        confetti({ particleCount: 90, spread: 75, origin: { y: 0.6 } });
+        confetti({ particleCount: 70, spread: 60, origin: { y: 0.7 } });
       }
     }
 
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        if (typeof confetti === 'function') {
-          confetti({ particleCount: 50, spread: 60, origin: { y: 0.8 } });
-        }
-      }, 700);
-    });
-
-    // 3. Mini quiz
-    function checkQuiz(btn, isCorrect) {
-      const msg = document.getElementById('quiz-msg');
-      const allBtn = btn.parentElement.querySelectorAll('button');
-      allBtn.forEach(b => b.disabled = true);
-
-      if (isCorrect) {
-        btn.classList.add('bg-emerald-100', 'border-emerald-500', 'text-emerald-900');
-        msg.className = "mt-4 p-4 rounded-xl bg-emerald-100 text-emerald-800 border border-emerald-300 font-bold block";
-        msg.innerHTML = "🎉 XUẤT SẮC! Đúng 452/452 em học sinh của trường đã được khám sức khỏe chu đáo!";
-        triggerConfetti();
-      } else {
-        btn.classList.add('bg-rose-100', 'border-rose-500', 'text-rose-900');
-        msg.className = "mt-4 p-4 rounded-xl bg-amber-100 text-amber-900 border border-amber-300 font-bold block";
-        msg.innerHTML = "Chưa đúng rồi! Đáp án đúng là: <strong>A. 452 / 452 em học sinh</strong> nhé!";
-      }
-    }
-
-    // 4. Thả tim
+    // Thả tim
     let likes = 256;
     function likeArticle() {
       likes++;
@@ -771,7 +569,7 @@
       triggerConfetti();
     }
 
-    // 5. Đọc giọng nói Tiếng Việt
+    // Giọng đọc Text-to-Speech
     let isSpeaking = false;
     let synth = window.speechSynthesis;
     let speechUtterance = null;
@@ -787,7 +585,7 @@
       if (isSpeaking) {
         synth.cancel();
         isSpeaking = false;
-        ttsBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+        ttsBtn.classList.remove('text-red-500');
         return;
       }
 
@@ -799,13 +597,12 @@
 
       speechUtterance.onend = () => {
         isSpeaking = false;
-        ttsBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+        ttsBtn.classList.remove('text-red-500');
       };
 
       synth.speak(speechUtterance);
       isSpeaking = true;
-      ttsBtn.classList.add('ring-4', 'ring-rose-400');
-      ttsBtn.innerHTML = '<i class="fa-solid fa-stop"></i>';
+      ttsBtn.classList.add('text-red-500');
     }
   </script>
 </body>
